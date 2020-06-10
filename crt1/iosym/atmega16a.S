@@ -30,7 +30,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: atmega16a.S 2376 2013-04-30 14:49:25Z joerg_wunsch $ */
+/* $Id: ioreg.pl 2376 2013-04-30 14:49:25Z joerg_wunsch $ */
 
 #include <avr/version.h>
 
@@ -2459,7 +2459,7 @@
 	.uleb128	0
 
 ;- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-	;; DIE #48: variable UBRRH
+	;; DIE #48: variable UBRRL
 	.section	.debug_info
 	.uleb128	48	; ref to abbrev 48
 	.section	.debug_abbrev
@@ -2471,7 +2471,7 @@
 	.uleb128	DW_FORM_strp
 	.section	.debug_str
 .Lname48:
-	.string		"UBRRH"
+	.string		"UBRRL"
 	.section	.debug_info
 	.long		.Lname48
 
@@ -2505,14 +2505,14 @@
 	.section	.debug_info
 	.byte		5	; length of block
 	.byte		DW_OP_addr
-	.long		0x800000 + 0x00 + 0x40
+	.long		0x800000 + 0x00 + 0x29
 
 	.section	.debug_abbrev
 	.uleb128	0
 	.uleb128	0
 
 ;- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-	;; DIE #49: variable UBRRL
+	;; DIE #49: variable UBRRH
 	.section	.debug_info
 	.uleb128	49	; ref to abbrev 49
 	.section	.debug_abbrev
@@ -2524,7 +2524,7 @@
 	.uleb128	DW_FORM_strp
 	.section	.debug_str
 .Lname49:
-	.string		"UBRRL"
+	.string		"UBRRH"
 	.section	.debug_info
 	.long		.Lname49
 
@@ -2558,7 +2558,7 @@
 	.section	.debug_info
 	.byte		5	; length of block
 	.byte		DW_OP_addr
-	.long		0x800000 + 0x00 + 0x29
+	.long		0x800000 + 0x00 + 0x40
 
 	.section	.debug_abbrev
 	.uleb128	0
