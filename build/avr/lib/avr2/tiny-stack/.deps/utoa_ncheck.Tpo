@@ -1,0 +1,6 @@
+utoa_ncheck.o: ../../../../../libc/misc/utoa_ncheck.S \
+ ../../../../../common/asmdef.h ../../../../../common/sectionname.h
+
+../../../../../common/asmdef.h:
+
+../../../../../common/sectionname.h:
