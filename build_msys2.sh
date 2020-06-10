@@ -1,4 +1,6 @@
 INSTALL_DIR=/c/avr
+XMLDIR=~/Documents/Atmel.ATmega_DFP.1.4.351/atdf
+export XMLDIR
 
 ./bootstrap
 

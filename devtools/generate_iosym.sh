@@ -12,7 +12,7 @@ atmega165p atmega168 atmega168a atmega168p atmega169 atmega169a \
 atmega169p atmega169pa atmega16a atmega16hva atmega16hva2 atmega16hvb \
 atmega16hvbrevb atmega16m1 atmega16u2 atmega16u4 atmega2560 atmega2561 \
 atmega2564rfr2 atmega256rfr2 atmega32 atmega323 atmega324a atmega324p \
-atmega324pa atmega325 atmega3250 atmega3250a atmega3250p atmega325a \
+atmega324pa atmega324pb atmega325 atmega3250 atmega3250a atmega3250p atmega325a \
 atmega325p atmega328 atmega328p atmega329 atmega3290 atmega3290a \
 atmega3290p atmega329a atmega329p atmega329pa atmega32c1 atmega32hvb \
 atmega32hvbrevb atmega32m1 atmega32u2 atmega32u4 atmega32u6 atmega406 \
@@ -50,9 +50,9 @@ for dev in $devs
 do
     xmldev=$(echo $dev | tr '[a-z]' '[A-Z]' |\
              sed -e s/XMEGA/xmega/ -e s/MEGA/mega/ -e s/TINY/tiny/)
-    if [ -f "${XMLDIR}/${xmldev}.xml" ]
+    if [ -f "${XMLDIR}/${xmldev}.atdf" ]
     then
 	echo "Generating ${dev}.S"
-	./ioreg.pl "${XMLDIR}/${xmldev}.xml" > ../crt1/iosym/${dev}.S
+	./ioreg.pl "${XMLDIR}/${xmldev}.atdf" > ../crt1/iosym/${dev}.S
     fi
 done
