@@ -28,7 +28,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 #
 
-SUBDIRS =  at90can32 at90can64 at90pwm216 at90pwm316 at90pwm161 at90scr100 at90usb646 at90usb647 at94k ata5702m322 ata5782 ata5790 ata5790n ata5795 ata5831 ata6613c ata6614q atmega16 atmega16a atmega161 atmega162 atmega163 atmega164a atmega164p atmega164pa atmega165 atmega165a atmega165p atmega165pa atmega168 atmega168a atmega168p atmega168pa atmega169 atmega169a atmega169p atmega169pa atmega16hva atmega16hva2 atmega16hvb atmega16hvbrevb atmega16m1 atmega16u4 atmega32 atmega32a atmega323 atmega324a atmega324p atmega324pa atmega325 atmega325a atmega325p atmega325pa atmega3250 atmega3250a atmega3250p atmega3250pa atmega328 atmega328p atmega329 atmega329a atmega329p atmega329pa atmega3290 atmega3290a atmega3290p atmega3290pa atmega32c1 atmega32hvb atmega32hvbrevb atmega32m1 atmega32u4 atmega32u6 atmega406 atmega644rfr2 atmega64rfr2 atmega64 atmega64a atmega640 atmega644 atmega644a atmega644p atmega644pa atmega645 atmega645a atmega645p atmega6450 atmega6450a atmega6450p atmega649 atmega649a atmega649p atmega6490 atmega6490a atmega6490p atmega64c1 atmega64hve atmega64hve2 atmega64m1 m3000
+SUBDIRS =  at90can32 at90can64 at90pwm216 at90pwm316 at90pwm161 at90scr100 at90usb646 at90usb647 at94k ata5702m322 ata5782 ata5790 ata5790n ata5795 ata5831 ata6613c ata6614q atmega16 atmega16a atmega161 atmega162 atmega163 atmega164a atmega164p atmega164pa atmega165 atmega165a atmega165p atmega165pa atmega168 atmega168a atmega168p atmega168pa atmega169 atmega169a atmega169p atmega169pa atmega16hva atmega16hva2 atmega16hvb atmega16hvbrevb atmega16m1 atmega16u4 atmega32 atmega32a atmega323 atmega324a atmega324p atmega324pa atmega324pb atmega325 atmega325a atmega325p atmega325pa atmega3250 atmega3250a atmega3250p atmega3250pa atmega328 atmega328p atmega329 atmega329a atmega329p atmega329pa atmega3290 atmega3290a atmega3290p atmega3290pa atmega32c1 atmega32hvb atmega32hvbrevb atmega32m1 atmega32u4 atmega32u6 atmega406 atmega644rfr2 atmega64rfr2 atmega64 atmega64a atmega640 atmega644 atmega644a atmega644p atmega644pa atmega645 atmega645a atmega645p atmega6450 atmega6450a atmega6450p atmega649 atmega649a atmega649p atmega6490 atmega6490a atmega6490p atmega64c1 atmega64hve atmega64hve2 atmega64m1 m3000
 
 AVR_TARGET          = avr5
 AVR_TARGET_DEFS     = -D__COMPILING_AVR_LIBC__
@@ -188,6 +188,9 @@ endif	# atmega324p
 if HAS_atmega324pa
   AVRLIB_DEVLIST += atmega324pa
 endif	# atmega324pa
+if HAS_atmega324pb
+  AVRLIB_DEVLIST += atmega324pb
+endif	# atmega324pb
 if HAS_atmega325
   AVRLIB_DEVLIST += atmega325
 endif	# atmega325

@@ -14,7 +14,8 @@
 
 @SET_MAKE@
 
-# Copyright (c) 2004,2005,2006,2007  Theodore A. Roth
+# Copyright (c) 2004,  Theodore A. Roth
+# Copyright (c) 2005, 2008  Anatoly Sokolov
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -42,10 +43,70 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 #
-# $Id: Makefile.am 2499 2016-01-28 14:41:31Z pitchumani $
+
+# Copyright (c) 2002, Reinhard Jessich  <reinhard.jessich@telering.at>
+# Copyright (c) 2009  Dmitry Xmelkov
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+# * Redistributions of source code must retain the above copyright
+#   notice, this list of conditions and the following disclaimer.
+# * Redistributions in binary form must reproduce the above copyright
+#   notice, this list of conditions and the following disclaimer in
+#   the documentation and/or other materials provided with the
+#   distribution.
+# * Neither the name of the copyright holders nor the names of
+#   contributors may be used to endorse or promote products derived
+#   from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+
+# $Id: Rules.am 2475 2015-05-07 06:45:38Z pitchumani $
+
+# Copyright (c) 2004,2009  Theodore A. Roth
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+# * Redistributions of source code must retain the above copyright
+#   notice, this list of conditions and the following disclaimer.
+# * Redistributions in binary form must reproduce the above copyright
+#   notice, this list of conditions and the following disclaimer in
+#   the documentation and/or other materials provided with the
+#   distribution.
+# * Neither the name of the copyright holders nor the names of
+#   contributors may be used to endorse or promote products derived
+#   from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+#
+# $Id: Files.am 2298 2012-07-29 15:30:34Z dmix $
 #
 
-VPATH = @srcdir@
+
 am__is_gnu_make = { \
   if test -z '$(MAKELEVEL)'; then \
     false; \
@@ -119,35 +180,16 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-subdir = include/avr
+subdir = avr/lib/avr5/atmega324pb
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
-DIST_COMMON = $(srcdir)/Makefile.am $(avr_HEADERS) $(am__DIST_COMMON)
+DIST_COMMON = $(srcdir)/Makefile.am $(am__DIST_COMMON)
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/config.h
-CONFIG_CLEAN_FILES = builtins.h
+CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
-AM_V_P = $(am__v_P_@AM_V@)
-am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
-am__v_P_0 = false
-am__v_P_1 = :
-AM_V_GEN = $(am__v_GEN_@AM_V@)
-am__v_GEN_ = $(am__v_GEN_@AM_DEFAULT_V@)
-am__v_GEN_0 = @echo "  GEN     " $@;
-am__v_GEN_1 = 
-AM_V_at = $(am__v_at_@AM_V@)
-am__v_at_ = $(am__v_at_@AM_DEFAULT_V@)
-am__v_at_0 = @
-am__v_at_1 = 
-SOURCES =
-DIST_SOURCES =
-am__can_run_installinfo = \
-  case $$AM_UPDATE_INFO_DIR in \
-    n|no|NO) false;; \
-    *) (install-info --version) >/dev/null 2>&1;; \
-  esac
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
     $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
@@ -176,7 +218,74 @@ am__uninstall_files_from_dir = { \
          $(am__cd) "$$dir" && rm -f $$files; }; \
   }
 am__installdirs = "$(DESTDIR)$(avrdir)" "$(DESTDIR)$(avrdir)"
-HEADERS = $(avr_HEADERS) $(nodist_avr_HEADERS)
+LIBRARIES = $(avr_LIBRARIES) $(noinst_LIBRARIES)
+ARFLAGS = cru
+AM_V_AR = $(am__v_AR_@AM_V@)
+am__v_AR_ = $(am__v_AR_@AM_DEFAULT_V@)
+am__v_AR_0 = @echo "  AR      " $@;
+am__v_AR_1 = 
+libatmega324pb_a_AR = $(AR) $(ARFLAGS)
+libatmega324pb_a_LIBADD =
+@HAS_DEV_LIB_TRUE@am__objects_1 = eerd_block.$(OBJEXT) \
+@HAS_DEV_LIB_TRUE@	eerd_byte.$(OBJEXT) eerd_dword.$(OBJEXT) \
+@HAS_DEV_LIB_TRUE@	eerd_word.$(OBJEXT) eeupd_block.$(OBJEXT) \
+@HAS_DEV_LIB_TRUE@	eeupd_byte.$(OBJEXT) eeupd_dword.$(OBJEXT) \
+@HAS_DEV_LIB_TRUE@	eeupd_word.$(OBJEXT) eewr_block.$(OBJEXT) \
+@HAS_DEV_LIB_TRUE@	eewr_byte.$(OBJEXT) eewr_dword.$(OBJEXT) \
+@HAS_DEV_LIB_TRUE@	eewr_word.$(OBJEXT)
+@HAS_DEV_LIB_TRUE@@HAS_GCC_5_1_FALSE@@HAS_atmega324pb_TRUE@nodist_libatmega324pb_a_OBJECTS = $(am__objects_1)
+libatmega324pb_a_OBJECTS = $(nodist_libatmega324pb_a_OBJECTS)
+libcrt_a_AR = $(AR) $(ARFLAGS)
+libcrt_a_LIBADD =
+@HAS_atmega324pb_TRUE@nodist_libcrt_a_OBJECTS = gcrt1.$(OBJEXT)
+libcrt_a_OBJECTS = $(nodist_libcrt_a_OBJECTS)
+libdev_a_AR = $(AR) $(ARFLAGS)
+libdev_a_LIBADD =
+@HAS_DEV_LIB_TRUE@@HAS_GCC_5_1_TRUE@@HAS_atmega324pb_TRUE@nodist_libdev_a_OBJECTS = $(am__objects_1)
+libdev_a_OBJECTS = $(nodist_libdev_a_OBJECTS)
+AM_V_P = $(am__v_P_@AM_V@)
+am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
+am__v_P_0 = false
+am__v_P_1 = :
+AM_V_GEN = $(am__v_GEN_@AM_V@)
+am__v_GEN_ = $(am__v_GEN_@AM_DEFAULT_V@)
+am__v_GEN_0 = @echo "  GEN     " $@;
+am__v_GEN_1 = 
+AM_V_at = $(am__v_at_@AM_V@)
+am__v_at_ = $(am__v_at_@AM_DEFAULT_V@)
+am__v_at_0 = @
+am__v_at_1 = 
+DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
+depcomp = $(SHELL) $(top_srcdir)/depcomp
+am__depfiles_maybe = depfiles
+am__mv = mv -f
+CPPASCOMPILE = $(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS)
+AM_V_CPPAS = $(am__v_CPPAS_@AM_V@)
+am__v_CPPAS_ = $(am__v_CPPAS_@AM_DEFAULT_V@)
+am__v_CPPAS_0 = @echo "  CPPAS   " $@;
+am__v_CPPAS_1 = 
+COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
+	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+AM_V_CC = $(am__v_CC_@AM_V@)
+am__v_CC_ = $(am__v_CC_@AM_DEFAULT_V@)
+am__v_CC_0 = @echo "  CC      " $@;
+am__v_CC_1 = 
+CCLD = $(CC)
+LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+AM_V_CCLD = $(am__v_CCLD_@AM_V@)
+am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
+am__v_CCLD_0 = @echo "  CCLD    " $@;
+am__v_CCLD_1 = 
+SOURCES = $(nodist_libatmega324pb_a_SOURCES) \
+	$(nodist_libcrt_a_SOURCES) $(nodist_libdev_a_SOURCES)
+DIST_SOURCES =
+am__can_run_installinfo = \
+  case $$AM_UPDATE_INFO_DIR in \
+    n|no|NO) false;; \
+    *) (install-info --version) >/dev/null 2>&1;; \
+  esac
+DATA = $(avr_DATA)
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP)
 # Read a list of newline-separated strings from the standard input,
 # and print each of them once, without duplicates.  Input order is
@@ -196,8 +305,11 @@ am__define_uniq_tagged_files = \
   done | $(am__uniquify_input)`
 ETAGS = etags
 CTAGS = ctags
-am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/builtins.h.in
+am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/depcomp \
+	$(top_srcdir)/libc/misc/Files.am \
+	$(top_srcdir)/libc/misc/Rules.am
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
+VPATH = $(top_srcdir)/crt1:$(top_srcdir)/libc/misc
 ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
 AM_DEFAULT_VERBOSITY = @AM_DEFAULT_VERBOSITY@
@@ -317,292 +429,74 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-avrdir = $(prefix)/avr/include/avr
-avr_HEADERS = \
-    boot.h \
-    common.h \
-    cpufunc.h \
-    crc16.h \
-    delay.h \
-    eeprom.h \
-    fuse.h \
-    interrupt.h \
-    io.h \
-    io1200.h \
-    io2313.h \
-    io2323.h \
-    io2333.h \
-    io2343.h \
-    io43u32x.h \
-    io43u35x.h \
-    io4414.h \
-    io4433.h \
-    io4434.h \
-    io76c711.h \
-    io8515.h \
-    io8534.h \
-    io8535.h \
-    io86r401.h \
-    io90pwm1.h \
-    io90pwmx.h \
-    io90pwm2b.h \
-    io90pwm216.h \
-    io90pwm3b.h \
-    io90pwm316.h \
-    io90pwm161.h \
-    io90pwm81.h \
-    io90scr100.h \
-    ioa5505.h \
-    ioa5272.h \
-    ioa5702m322.h \
-    ioa5782.h \
-    ioa5790.h \
-    ioa5790n.h \
-    ioa5795.h \
-    ioa5831.h \
-    ioa6285.h \
-    ioa6286.h \
-    ioa6289.h \
-    ioa6612c.h \
-    ioa6613c.h \
-    ioa6614q.h \
-    ioa6616c.h \
-    ioa6617c.h \
-    ioa664251.h \
-    ioat94k.h \
-    iocan32.h \
-    iocan64.h \
-    iocan128.h \
-    iocanxx.h \
-    iom103.h \
-    iom128.h \
-    iom128a.h \
-    iom1280.h \
-    iom1281.h \
-    iom1284.h \
-    iom1284p.h \
-    iom128rfa1.h \
-    iom1284rfr2.h \
-    iom128rfr2.h \
-    iom16.h \
-    iom16a.h \
-    iom161.h \
-    iom162.h \
-    iom163.h \
-    iom164.h \
-    iom164pa.h \
-    iom165.h \
-    iom165a.h \
-    iom165p.h \
-    iom165pa.h \
-    iom168.h \
-    iom168a.h \
-    iom168p.h \
-    iom168pa.h \
-    iom169.h \
-    iom169p.h \
-    iom169pa.h \
-    iom16hva.h \
-    iom16hva2.h \
-    iom16hvb.h \
-    iom16hvbrevb.h \
-    iom16m1.h \
-    iom16u2.h \
-    iom16u4.h \
-    iom2560.h \
-    iom2561.h \
-    iom256rfr2.h \
-    iom2564rfr2.h \
-    iom3000.h \
-    iom32.h \
-    iom32a.h \
-    iom323.h \
-    iom324.h \
-    iom324pa.h \
-    iom324pb.h \
-    iom325.h \
-    iom325pa.h \
-    iom3250.h \
-    iom3250pa.h \
-    iom328p.h \
-    iom329.h \
-    iom3290.h \
-    iom3290pa.h \
-    iom32hvb.h \
-    iom32hvbrevb.h \
-    iom32c1.h \
-    iom32m1.h \
-    iom32u2.h \
-    iom32u4.h \
-    iom32u6.h \
-    iom48.h \
-    iom48a.h \
-    iom48pa.h \
-    iom48pb.h \
-    iom48p.h \
-    iom406.h \
-    iom64.h \
-    iom64a.h \
-    iom640.h \
-    iom644.h \
-    iom644a.h \
-    iom644p.h \
-    iom644pa.h \
-    iom645.h \
-    iom6450.h \
-    iom649.h \
-    iom649p.h \
-    iom6490.h \
-    iom64c1.h \
-    iom64hve.h \
-    iom64hve2.h \
-    iom64m1.h \
-    iom64rfr2.h \
-    iom644rfr2.h \
-    iom8.h \
-    iom8a.h \
-    iom8515.h \
-    iom8535.h \
-    iom88.h \
-    iom88a.h \
-    iom88p.h \
-    iom88pa.h \
-    iom88pb.h \
-    iom8hva.h \
-    iom8u2.h \
-    iomx8.h \
-    iomxx0_1.h \
-    iomxx4.h \
-    iomxxhva.h \
-    iotn4.h \
-    iotn5.h \
-    iotn9.h \
-    iotn10.h \
-    iotn11.h \
-    iotn12.h \
-    iotn13.h \
-    iotn13a.h \
-    iotn15.h \
-    iotn167.h \
-    iotn1634.h \
-    iotn20.h \
-    iotn22.h \
-    iotn828.h \
-    iotn2313.h \
-    iotn2313a.h \
-    iotn24.h \
-    iotn24a.h \
-    iotn25.h \
-    iotn26.h \
-    iotn261.h \
-    iotn261a.h \
-    iotn28.h \
-    iotn40.h \
-    iotn4313.h \
-    iotn43u.h \
-    iotn44.h \
-    iotn44a.h \
-    iotn441.h \
-    iotn45.h \
-    iotn461.h \
-    iotn461a.h \
-    iotn48.h \
-    iotn88.h \
-    iotn84.h \
-    iotn84a.h \
-    iotn841.h \
-    iotn85.h \
-    iotn861.h \
-    iotn861a.h \
-    iotn87.h \
-    iotnx4.h \
-    iotnx5.h \
-    iotnx61.h \
-    iousb82.h \
-    iousb1286.h \
-    iousb1287.h \
-    iousb162.h \
-    iousbxx2.h \
-    iousb646.h \
-    iousb647.h \
-    iousbxx6_7.h \
-    iox64d3.h \
-    iox64d4.h \
-    iox128a1.h \
-    iox128a1u.h \
-    iox128a4u.h \
-    iox128a3.h \
-    iox128a3u.h \
-    iox128b1.h \
-    iox128b3.h \
-    iox128c3.h \
-    iox128d3.h \
-    iox128d4.h \
-    iox16a4.h \
-    iox16a4u.h \
-    iox16c4.h \
-    iox16d4.h \
-    iox192a3.h \
-    iox192a3u.h \
-    iox192c3.h \
-    iox192d3.h \
-    iox256a3.h \
-    iox256a3u.h \
-    iox256a3b.h \
-    iox256a3bu.h \
-    iox256c3.h \
-    iox256d3.h \
-    iox384c3.h \
-    iox384d3.h \
-    iox32a4.h \
-    iox32a4u.h \
-    iox32c3.h \
-    iox32c4.h \
-    iox32d3.h \
-    iox32d4.h \
-    iox32e5.h \
-    iox64a1.h \
-    iox64a1u.h \
-    iox64a3.h \
-    iox64a3u.h \
-    iox64a4u.h \
-    iox64b1.h \
-    iox64b3.h \
-    iox64c3.h \
-    iox8e5.h \
-    lock.h \
-    parity.h \
-    pgmspace.h \
-    portpins.h \
-    power.h \
-    signature.h \
-    sfr_defs.h \
-    signal.h \
-    sleep.h \
-    version.h \
-    wdt.h \
-    xmega.h
+AVR_TARGET = atmega324pb
+@HAS_DEV_LIB_FALSE@AVR_TARGET_CRT = crtm324pb.o
+# avr-gcc > 5.1.0 expects crt file as crt<device name>.o and
+# device library in multi-lib directory itself
+@HAS_DEV_LIB_TRUE@@HAS_GCC_5_1_FALSE@AVR_TARGET_CRT = crtatmega324pb.o
+# avr-gcc 5.1.0 expects crt file as crt1.o and 
+# device library in dev directory
+@HAS_DEV_LIB_TRUE@@HAS_GCC_5_1_TRUE@AVR_TARGET_CRT = crt1.o
+@HAS_DEV_LIB_FALSE@AVR_INSTALL_DIR = avr5
+@HAS_DEV_LIB_TRUE@@HAS_GCC_5_1_FALSE@AVR_INSTALL_DIR = avr5
+@HAS_DEV_LIB_TRUE@@HAS_GCC_5_1_TRUE@AVR_INSTALL_DIR = dev/atmega324pb
+AVR_TARGET_DEFS = 
+AVR_TARGET_CFLAGS = -mcall-prologues -Os
+AVR_TARGET_ASFLAGS = 
+@HAS_DEV_LIB_TRUE@misc_a_c_sources = 
+@HAS_DEV_LIB_TRUE@eeprom_asm_sources = \
+@HAS_DEV_LIB_TRUE@	eerd_block.S \
+@HAS_DEV_LIB_TRUE@	eerd_byte.S \
+@HAS_DEV_LIB_TRUE@	eerd_dword.S \
+@HAS_DEV_LIB_TRUE@	eerd_word.S \
+@HAS_DEV_LIB_TRUE@	eeupd_block.S \
+@HAS_DEV_LIB_TRUE@	eeupd_byte.S \
+@HAS_DEV_LIB_TRUE@	eeupd_dword.S \
+@HAS_DEV_LIB_TRUE@	eeupd_word.S \
+@HAS_DEV_LIB_TRUE@	eewr_block.S \
+@HAS_DEV_LIB_TRUE@	eewr_byte.S \
+@HAS_DEV_LIB_TRUE@	eewr_dword.S \
+@HAS_DEV_LIB_TRUE@	eewr_word.S
 
-nodist_avr_HEADERS = \
-    builtins.h
+@HAS_DEV_LIB_TRUE@misc_a_asm_sources = \
+@HAS_DEV_LIB_TRUE@	itoa.S \
+@HAS_DEV_LIB_TRUE@	itoa_ncheck.S \
+@HAS_DEV_LIB_TRUE@	ltoa.S \
+@HAS_DEV_LIB_TRUE@	ltoa_ncheck.S \
+@HAS_DEV_LIB_TRUE@	mulsi10.S \
+@HAS_DEV_LIB_TRUE@	mul10.S \
+@HAS_DEV_LIB_TRUE@	ultoa.S \
+@HAS_DEV_LIB_TRUE@	ultoa_ncheck.S \
+@HAS_DEV_LIB_TRUE@	utoa.S \
+@HAS_DEV_LIB_TRUE@	utoa_ncheck.S
 
-EXTRA_DIST = \
-    builtins.h.in \
-    version.h.in
+@HAS_DEV_LIB_TRUE@misc_a_extra_dist = \
+@HAS_DEV_LIB_TRUE@	eedef.h \
+@HAS_DEV_LIB_TRUE@	readme_eeprom.txt
 
-do_subst = sed \
-	-e 's,[@]AVR_LIBC_MAJOR[@],$(AVR_LIBC_MAJOR),g' \
-	-e 's,[@]AVR_LIBC_MINOR[@],$(AVR_LIBC_MINOR),g' \
-	-e 's,[@]AVR_LIBC_REVISION[@],$(AVR_LIBC_REVISION),g' \
-	-e 's,[@]AVR_LIBC_RELDATE[@],$(AVR_LIBC_RELDATE),g' \
-	-e 's,[@]AVR_LIBC_VERSION[@],$(AVR_LIBC_VERSION),g' \
-	-e 's,[@]AVR_LIBC_VERSION_NUMERIC[@],$(AVR_LIBC_VERSION_NUMERIC),g'
+@HAS_atmega324pb_TRUE@AM_CPPFLAGS = -I$(top_srcdir)/common -I$(top_srcdir)/include -I$(top_builddir)/include
+@HAS_atmega324pb_TRUE@AVRLIB_CFLAGS = @CDEBUG@ -Wall -W -Wstrict-prototypes -mmcu=$(AVR_TARGET) $(AVR_TARGET_DEFS) $(AVR_TARGET_CFLAGS)
+@HAS_atmega324pb_TRUE@AVRLIB_ASFLAGS = -x assembler-with-cpp @ASDEBUG@ -mmcu=$(AVR_TARGET) $(AVR_TARGET_DEFS) -DIOSYMFILE=\"iosym/$(AVR_TARGET).S\" $(AVR_TARGET_ASFLAGS)
+@HAS_atmega324pb_TRUE@AM_CFLAGS = $(AVRLIB_CFLAGS)
+@HAS_atmega324pb_TRUE@AM_CCASFLAGS = $(AM_CPPFLAGS) $(AVRLIB_ASFLAGS)
+@HAS_atmega324pb_TRUE@__install_dir = $(prefix)/avr/lib/$(AVR_INSTALL_DIR)
+@HAS_atmega324pb_TRUE@avrdir = $(__install_dir)
+@HAS_atmega324pb_TRUE@avrlibdir = $(__install_dir)
+@HAS_atmega324pb_TRUE@noinst_LIBRARIES = libcrt.a
+@HAS_atmega324pb_TRUE@nodist_libcrt_a_SOURCES = gcrt1.S
+# avr-gcc > 5.1.0 expects device library as lib<device name>.a
+@HAS_DEV_LIB_TRUE@@HAS_GCC_5_1_FALSE@@HAS_atmega324pb_TRUE@avr_LIBRARIES = libatmega324pb.a
 
-CLEANFILES = version.h
+# avr-gcc 5.1.0 expects device library as libdev.a
+@HAS_DEV_LIB_TRUE@@HAS_GCC_5_1_TRUE@@HAS_atmega324pb_TRUE@avr_LIBRARIES = libdev.a
+@HAS_DEV_LIB_TRUE@@HAS_GCC_5_1_TRUE@@HAS_atmega324pb_TRUE@nodist_libdev_a_SOURCES = $(eeprom_asm_sources)
+@HAS_DEV_LIB_TRUE@@HAS_GCC_5_1_FALSE@@HAS_atmega324pb_TRUE@nodist_libatmega324pb_a_SOURCES = $(eeprom_asm_sources)
+@HAS_atmega324pb_TRUE@avr_DATA = $(AVR_TARGET_CRT)
 all: all-am
 
 .SUFFIXES:
-$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
+.SUFFIXES: .S .o .obj
+$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am $(top_srcdir)/libc/misc/Rules.am $(top_srcdir)/libc/misc/Files.am $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
 	    *$$dep*) \
@@ -611,9 +505,9 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign include/avr/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign avr/lib/avr5/atmega324pb/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign include/avr/Makefile
+	  $(AUTOMAKE) --foreign avr/lib/avr5/atmega324pb/Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
 	  *config.status*) \
@@ -622,6 +516,7 @@ Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	    echo ' cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__depfiles_maybe)'; \
 	    cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__depfiles_maybe);; \
 	esac;
+$(top_srcdir)/libc/misc/Rules.am $(top_srcdir)/libc/misc/Files.am $(am__empty):
 
 $(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
@@ -631,32 +526,92 @@ $(top_srcdir)/configure:  $(am__configure_deps)
 $(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(am__aclocal_m4_deps):
-builtins.h: $(top_builddir)/config.status $(srcdir)/builtins.h.in
-	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@
-install-avrHEADERS: $(avr_HEADERS)
+install-avrLIBRARIES: $(avr_LIBRARIES)
 	@$(NORMAL_INSTALL)
-	@list='$(avr_HEADERS)'; test -n "$(avrdir)" || list=; \
-	if test -n "$$list"; then \
+	@list='$(avr_LIBRARIES)'; test -n "$(avrdir)" || list=; \
+	list2=; for p in $$list; do \
+	  if test -f $$p; then \
+	    list2="$$list2 $$p"; \
+	  else :; fi; \
+	done; \
+	test -z "$$list2" || { \
 	  echo " $(MKDIR_P) '$(DESTDIR)$(avrdir)'"; \
 	  $(MKDIR_P) "$(DESTDIR)$(avrdir)" || exit 1; \
-	fi; \
+	  echo " $(INSTALL_DATA) $$list2 '$(DESTDIR)$(avrdir)'"; \
+	  $(INSTALL_DATA) $$list2 "$(DESTDIR)$(avrdir)" || exit $$?; }
+	@$(POST_INSTALL)
+	@list='$(avr_LIBRARIES)'; test -n "$(avrdir)" || list=; \
 	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_HEADER) $$files '$(DESTDIR)$(avrdir)'"; \
-	  $(INSTALL_HEADER) $$files "$(DESTDIR)$(avrdir)" || exit $$?; \
+	  if test -f $$p; then \
+	    $(am__strip_dir) \
+	    echo " ( cd '$(DESTDIR)$(avrdir)' && $(RANLIB) $$f )"; \
+	    ( cd "$(DESTDIR)$(avrdir)" && $(RANLIB) $$f ) || exit $$?; \
+	  else :; fi; \
 	done
 
-uninstall-avrHEADERS:
+uninstall-avrLIBRARIES:
 	@$(NORMAL_UNINSTALL)
-	@list='$(avr_HEADERS)'; test -n "$(avrdir)" || list=; \
+	@list='$(avr_LIBRARIES)'; test -n "$(avrdir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	dir='$(DESTDIR)$(avrdir)'; $(am__uninstall_files_from_dir)
-install-nodist_avrHEADERS: $(nodist_avr_HEADERS)
+
+clean-avrLIBRARIES:
+	-test -z "$(avr_LIBRARIES)" || rm -f $(avr_LIBRARIES)
+
+clean-noinstLIBRARIES:
+	-test -z "$(noinst_LIBRARIES)" || rm -f $(noinst_LIBRARIES)
+
+libatmega324pb.a: $(libatmega324pb_a_OBJECTS) $(libatmega324pb_a_DEPENDENCIES) $(EXTRA_libatmega324pb_a_DEPENDENCIES) 
+	$(AM_V_at)-rm -f libatmega324pb.a
+	$(AM_V_AR)$(libatmega324pb_a_AR) libatmega324pb.a $(libatmega324pb_a_OBJECTS) $(libatmega324pb_a_LIBADD)
+	$(AM_V_at)$(RANLIB) libatmega324pb.a
+
+libcrt.a: $(libcrt_a_OBJECTS) $(libcrt_a_DEPENDENCIES) $(EXTRA_libcrt_a_DEPENDENCIES) 
+	$(AM_V_at)-rm -f libcrt.a
+	$(AM_V_AR)$(libcrt_a_AR) libcrt.a $(libcrt_a_OBJECTS) $(libcrt_a_LIBADD)
+	$(AM_V_at)$(RANLIB) libcrt.a
+
+libdev.a: $(libdev_a_OBJECTS) $(libdev_a_DEPENDENCIES) $(EXTRA_libdev_a_DEPENDENCIES) 
+	$(AM_V_at)-rm -f libdev.a
+	$(AM_V_AR)$(libdev_a_AR) libdev.a $(libdev_a_OBJECTS) $(libdev_a_LIBADD)
+	$(AM_V_at)$(RANLIB) libdev.a
+
+mostlyclean-compile:
+	-rm -f *.$(OBJEXT)
+
+distclean-compile:
+	-rm -f *.tab.c
+
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eerd_block.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eerd_byte.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eerd_dword.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eerd_word.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eeupd_block.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eeupd_byte.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eeupd_dword.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eeupd_word.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eewr_block.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eewr_byte.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eewr_dword.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eewr_word.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gcrt1.Po@am__quote@
+
+.S.o:
+@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CPPASCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CPPASCOMPILE) -c -o $@ $<
+
+.S.obj:
+@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CPPASCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ `$(CYGPATH_W) '$<'`
+@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CPPASCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
+install-avrDATA: $(avr_DATA)
 	@$(NORMAL_INSTALL)
-	@list='$(nodist_avr_HEADERS)'; test -n "$(avrdir)" || list=; \
+	@list='$(avr_DATA)'; test -n "$(avrdir)" || list=; \
 	if test -n "$$list"; then \
 	  echo " $(MKDIR_P) '$(DESTDIR)$(avrdir)'"; \
 	  $(MKDIR_P) "$(DESTDIR)$(avrdir)" || exit 1; \
@@ -666,13 +621,13 @@ install-nodist_avrHEADERS: $(nodist_avr_HEADERS)
 	  echo "$$d$$p"; \
 	done | $(am__base_list) | \
 	while read files; do \
-	  echo " $(INSTALL_HEADER) $$files '$(DESTDIR)$(avrdir)'"; \
-	  $(INSTALL_HEADER) $$files "$(DESTDIR)$(avrdir)" || exit $$?; \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(avrdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(avrdir)" || exit $$?; \
 	done
 
-uninstall-nodist_avrHEADERS:
+uninstall-avrDATA:
 	@$(NORMAL_UNINSTALL)
-	@list='$(nodist_avr_HEADERS)'; test -n "$(avrdir)" || list=; \
+	@list='$(avr_DATA)'; test -n "$(avrdir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	dir='$(DESTDIR)$(avrdir)'; $(am__uninstall_files_from_dir)
 
@@ -760,7 +715,7 @@ distdir: $(DISTFILES)
 	done
 check-am: all-am
 check: check-am
-all-am: Makefile $(HEADERS)
+all-am: Makefile $(LIBRARIES) $(DATA)
 installdirs:
 	for dir in "$(DESTDIR)$(avrdir)" "$(DESTDIR)$(avrdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
@@ -787,7 +742,6 @@ install-strip:
 mostlyclean-generic:
 
 clean-generic:
-	-test -z "$(CLEANFILES)" || rm -f $(CLEANFILES)
 
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
@@ -798,11 +752,14 @@ maintainer-clean-generic:
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-am
 
-clean-am: clean-generic mostlyclean-am
+clean-am: clean-avrLIBRARIES clean-generic clean-noinstLIBRARIES \
+	mostlyclean-am
 
 distclean: distclean-am
+	-rm -rf ./$(DEPDIR)
 	-rm -f Makefile
-distclean-am: clean-am distclean-generic distclean-tags
+distclean-am: clean-am distclean-compile distclean-generic \
+	distclean-tags
 
 dvi: dvi-am
 
@@ -816,7 +773,7 @@ info: info-am
 
 info-am:
 
-install-data-am: install-avrHEADERS install-nodist_avrHEADERS
+install-data-am: install-avrDATA install-avrLIBRARIES
 
 install-dvi: install-dvi-am
 
@@ -845,12 +802,13 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
+	-rm -rf ./$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
 mostlyclean: mostlyclean-am
 
-mostlyclean-am: mostlyclean-generic
+mostlyclean-am: mostlyclean-compile mostlyclean-generic
 
 pdf: pdf-am
 
@@ -860,28 +818,57 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-avrHEADERS uninstall-nodist_avrHEADERS
+uninstall-am: uninstall-avrDATA uninstall-avrLIBRARIES
 
 .MAKE: install-am install-strip
 
-.PHONY: CTAGS GTAGS TAGS all all-am check check-am clean clean-generic \
-	cscopelist-am ctags ctags-am distclean distclean-generic \
-	distclean-tags distdir dvi dvi-am html html-am info info-am \
-	install install-am install-avrHEADERS install-data \
-	install-data-am install-dvi install-dvi-am install-exec \
-	install-exec-am install-html install-html-am install-info \
-	install-info-am install-man install-nodist_avrHEADERS \
+.PHONY: CTAGS GTAGS TAGS all all-am check check-am clean \
+	clean-avrLIBRARIES clean-generic clean-noinstLIBRARIES \
+	cscopelist-am ctags ctags-am distclean distclean-compile \
+	distclean-generic distclean-tags distdir dvi dvi-am html \
+	html-am info info-am install install-am install-avrDATA \
+	install-avrLIBRARIES install-data install-data-am install-dvi \
+	install-dvi-am install-exec install-exec-am install-html \
+	install-html-am install-info install-info-am install-man \
 	install-pdf install-pdf-am install-ps install-ps-am \
 	install-strip installcheck installcheck-am installdirs \
 	maintainer-clean maintainer-clean-generic mostlyclean \
-	mostlyclean-generic pdf pdf-am ps ps-am tags tags-am uninstall \
-	uninstall-am uninstall-avrHEADERS uninstall-nodist_avrHEADERS
+	mostlyclean-compile mostlyclean-generic pdf pdf-am ps ps-am \
+	tags tags-am uninstall uninstall-am uninstall-avrDATA \
+	uninstall-avrLIBRARIES
 
 .PRECIOUS: Makefile
 
 
-version.h: version.h.in $(top_builddir)/config.h
-	$(do_subst) < $(srcdir)/version.h.in > version.h
+# vim: set ft=make:
+
+# Example of '-mmcu' arg generation:
+#   $@          --> eerd_byte_atmega48.o
+#   basename    --> eerd_byte_atmega48
+#   subst       --> eerd byte atmega48
+#   lastword    --> atmega48
+#
+# Example of source file generation:
+#   $@          --> eerd_byte_atmega48.o
+#   basename    --> eerd_byte_atmega48
+#   subst       --> eerd.byte.atmega48
+#   basename    --> eerd.byte
+#   subst       --> eerd_byte
+#   addsuffix   --> eerd_byte.S
+#
+#$(eeprom_asm_objlist):	$(eeprom_asm_sources)
+#	$(filter-out -mmcu=%,$(COMPILE) $(AVRLIB_ASFLAGS)) -c -o $@	\
+#	    -mmcu=$(lastword $(subst _, ,$(basename $@)))		\
+#	    $(<D)/$(addsuffix .S,\
+#	    	    $(subst .,_,$(basename $(subst _,.,$(basename $@)))))
+
+# vim: set ft=make:
+
+@HAS_atmega324pb_TRUE@$(AVR_TARGET_CRT): gcrt1.o
+@HAS_atmega324pb_TRUE@	rm -f $@
+@HAS_atmega324pb_TRUE@	ln $< $@ || cp $< $@
+
+@HAS_atmega324pb_FALSE@echo all distdir install installdirs clean distclean uninstall check:
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

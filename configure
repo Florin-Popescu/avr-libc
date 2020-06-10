@@ -901,6 +901,8 @@ HAS_atmega325a_FALSE
 HAS_atmega325a_TRUE
 HAS_atmega325_FALSE
 HAS_atmega325_TRUE
+HAS_atmega324pb_FALSE
+HAS_atmega324pb_TRUE
 HAS_atmega324pa_FALSE
 HAS_atmega324pa_TRUE
 HAS_atmega324p_FALSE
@@ -9584,6 +9586,43 @@ fi
 
     old_CC=${CC}
     old_CFLAGS=${CFLAGS}
+    CFLAGS="-mmcu=atmega324pb"
+    CC=`echo "${CC}" | sed 's/-mmcu=avr.//'`
+    { $as_echo "$as_me:${as_lineno-$LINENO}: checking if ${CC} has support for atmega324pb" >&5
+$as_echo_n "checking if ${CC} has support for atmega324pb... " >&6; }
+    cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+
+_ACEOF
+if ac_fn_c_try_compile "$LINENO"; then :
+  has_dev_support=yes
+else
+  has_dev_support=no
+
+fi
+rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
+    if test "x$has_dev_support" = "xyes"
+    then
+      HAS_atmega324pb=yes
+    fi
+    { $as_echo "$as_me:${as_lineno-$LINENO}: result: $has_dev_support" >&5
+$as_echo "$has_dev_support" >&6; }
+    CC=${old_CC}
+    CFLAGS=${old_CFLAGS}
+
+
+ if test "x$HAS_atmega324pb" = "xyes"; then
+  HAS_atmega324pb_TRUE=
+  HAS_atmega324pb_FALSE='#'
+else
+  HAS_atmega324pb_TRUE='#'
+  HAS_atmega324pb_FALSE=
+fi
+
+
+
+    old_CC=${CC}
+    old_CFLAGS=${CFLAGS}
     CFLAGS="-mmcu=atmega325"
     CC=`echo "${CC}" | sed 's/-mmcu=avr.//'`
     { $as_echo "$as_me:${as_lineno-$LINENO}: checking if ${CC} has support for atmega325" >&5
@@ -14235,7 +14274,7 @@ ac_config_files="$ac_config_files avr/lib/avr4/Makefile avr/lib/avr4/ata6285/Mak
 
 
 #avr5
-ac_config_files="$ac_config_files avr/lib/avr5/Makefile avr/lib/avr5/at90can32/Makefile avr/lib/avr5/at90can64/Makefile avr/lib/avr5/at90pwm216/Makefile avr/lib/avr5/at90pwm316/Makefile avr/lib/avr5/at90pwm161/Makefile avr/lib/avr5/at90scr100/Makefile avr/lib/avr5/at90usb646/Makefile avr/lib/avr5/at90usb647/Makefile avr/lib/avr5/at94k/Makefile avr/lib/avr5/ata5702m322/Makefile avr/lib/avr5/ata5782/Makefile avr/lib/avr5/ata5790/Makefile avr/lib/avr5/ata5790n/Makefile avr/lib/avr5/ata5795/Makefile avr/lib/avr5/ata5831/Makefile avr/lib/avr5/ata6613c/Makefile avr/lib/avr5/ata6614q/Makefile avr/lib/avr5/atmega16/Makefile avr/lib/avr5/atmega16a/Makefile avr/lib/avr5/atmega161/Makefile avr/lib/avr5/atmega162/Makefile avr/lib/avr5/atmega163/Makefile avr/lib/avr5/atmega164a/Makefile avr/lib/avr5/atmega164p/Makefile avr/lib/avr5/atmega164pa/Makefile avr/lib/avr5/atmega165/Makefile avr/lib/avr5/atmega165a/Makefile avr/lib/avr5/atmega165p/Makefile avr/lib/avr5/atmega165pa/Makefile avr/lib/avr5/atmega168/Makefile avr/lib/avr5/atmega168a/Makefile avr/lib/avr5/atmega168p/Makefile avr/lib/avr5/atmega168pa/Makefile avr/lib/avr5/atmega169/Makefile avr/lib/avr5/atmega169a/Makefile avr/lib/avr5/atmega169p/Makefile avr/lib/avr5/atmega169pa/Makefile avr/lib/avr5/atmega16hva/Makefile avr/lib/avr5/atmega16hva2/Makefile avr/lib/avr5/atmega16hvb/Makefile avr/lib/avr5/atmega16hvbrevb/Makefile avr/lib/avr5/atmega16m1/Makefile avr/lib/avr5/atmega16u4/Makefile avr/lib/avr5/atmega32/Makefile avr/lib/avr5/atmega32a/Makefile avr/lib/avr5/atmega323/Makefile avr/lib/avr5/atmega324a/Makefile avr/lib/avr5/atmega324p/Makefile avr/lib/avr5/atmega324pa/Makefile avr/lib/avr5/atmega325/Makefile avr/lib/avr5/atmega325a/Makefile avr/lib/avr5/atmega325p/Makefile avr/lib/avr5/atmega325pa/Makefile avr/lib/avr5/atmega3250/Makefile avr/lib/avr5/atmega3250a/Makefile avr/lib/avr5/atmega3250p/Makefile avr/lib/avr5/atmega3250pa/Makefile avr/lib/avr5/atmega328/Makefile avr/lib/avr5/atmega328p/Makefile avr/lib/avr5/atmega329/Makefile avr/lib/avr5/atmega329a/Makefile avr/lib/avr5/atmega329p/Makefile avr/lib/avr5/atmega329pa/Makefile avr/lib/avr5/atmega3290/Makefile avr/lib/avr5/atmega3290a/Makefile avr/lib/avr5/atmega3290p/Makefile avr/lib/avr5/atmega3290pa/Makefile avr/lib/avr5/atmega32c1/Makefile avr/lib/avr5/atmega32hvb/Makefile avr/lib/avr5/atmega32hvbrevb/Makefile avr/lib/avr5/atmega32m1/Makefile avr/lib/avr5/atmega32u4/Makefile avr/lib/avr5/atmega32u6/Makefile avr/lib/avr5/atmega406/Makefile avr/lib/avr5/atmega64rfr2/Makefile avr/lib/avr5/atmega644rfr2/Makefile avr/lib/avr5/atmega64/Makefile avr/lib/avr5/atmega64a/Makefile avr/lib/avr5/atmega640/Makefile avr/lib/avr5/atmega644/Makefile avr/lib/avr5/atmega644a/Makefile avr/lib/avr5/atmega644p/Makefile avr/lib/avr5/atmega644pa/Makefile avr/lib/avr5/atmega645/Makefile avr/lib/avr5/atmega645a/Makefile avr/lib/avr5/atmega645p/Makefile avr/lib/avr5/atmega6450/Makefile avr/lib/avr5/atmega6450a/Makefile avr/lib/avr5/atmega6450p/Makefile avr/lib/avr5/atmega649/Makefile avr/lib/avr5/atmega649a/Makefile avr/lib/avr5/atmega649p/Makefile avr/lib/avr5/atmega6490/Makefile avr/lib/avr5/atmega6490a/Makefile avr/lib/avr5/atmega6490p/Makefile avr/lib/avr5/atmega64c1/Makefile avr/lib/avr5/atmega64hve/Makefile avr/lib/avr5/atmega64hve2/Makefile avr/lib/avr5/atmega64m1/Makefile avr/lib/avr5/m3000/Makefile"
+ac_config_files="$ac_config_files avr/lib/avr5/Makefile avr/lib/avr5/at90can32/Makefile avr/lib/avr5/at90can64/Makefile avr/lib/avr5/at90pwm216/Makefile avr/lib/avr5/at90pwm316/Makefile avr/lib/avr5/at90pwm161/Makefile avr/lib/avr5/at90scr100/Makefile avr/lib/avr5/at90usb646/Makefile avr/lib/avr5/at90usb647/Makefile avr/lib/avr5/at94k/Makefile avr/lib/avr5/ata5702m322/Makefile avr/lib/avr5/ata5782/Makefile avr/lib/avr5/ata5790/Makefile avr/lib/avr5/ata5790n/Makefile avr/lib/avr5/ata5795/Makefile avr/lib/avr5/ata5831/Makefile avr/lib/avr5/ata6613c/Makefile avr/lib/avr5/ata6614q/Makefile avr/lib/avr5/atmega16/Makefile avr/lib/avr5/atmega16a/Makefile avr/lib/avr5/atmega161/Makefile avr/lib/avr5/atmega162/Makefile avr/lib/avr5/atmega163/Makefile avr/lib/avr5/atmega164a/Makefile avr/lib/avr5/atmega164p/Makefile avr/lib/avr5/atmega164pa/Makefile avr/lib/avr5/atmega165/Makefile avr/lib/avr5/atmega165a/Makefile avr/lib/avr5/atmega165p/Makefile avr/lib/avr5/atmega165pa/Makefile avr/lib/avr5/atmega168/Makefile avr/lib/avr5/atmega168a/Makefile avr/lib/avr5/atmega168p/Makefile avr/lib/avr5/atmega168pa/Makefile avr/lib/avr5/atmega169/Makefile avr/lib/avr5/atmega169a/Makefile avr/lib/avr5/atmega169p/Makefile avr/lib/avr5/atmega169pa/Makefile avr/lib/avr5/atmega16hva/Makefile avr/lib/avr5/atmega16hva2/Makefile avr/lib/avr5/atmega16hvb/Makefile avr/lib/avr5/atmega16hvbrevb/Makefile avr/lib/avr5/atmega16m1/Makefile avr/lib/avr5/atmega16u4/Makefile avr/lib/avr5/atmega32/Makefile avr/lib/avr5/atmega32a/Makefile avr/lib/avr5/atmega323/Makefile avr/lib/avr5/atmega324a/Makefile avr/lib/avr5/atmega324p/Makefile avr/lib/avr5/atmega324pa/Makefile avr/lib/avr5/atmega324pb/Makefile avr/lib/avr5/atmega325/Makefile avr/lib/avr5/atmega325a/Makefile avr/lib/avr5/atmega325p/Makefile avr/lib/avr5/atmega325pa/Makefile avr/lib/avr5/atmega3250/Makefile avr/lib/avr5/atmega3250a/Makefile avr/lib/avr5/atmega3250p/Makefile avr/lib/avr5/atmega3250pa/Makefile avr/lib/avr5/atmega328/Makefile avr/lib/avr5/atmega328p/Makefile avr/lib/avr5/atmega329/Makefile avr/lib/avr5/atmega329a/Makefile avr/lib/avr5/atmega329p/Makefile avr/lib/avr5/atmega329pa/Makefile avr/lib/avr5/atmega3290/Makefile avr/lib/avr5/atmega3290a/Makefile avr/lib/avr5/atmega3290p/Makefile avr/lib/avr5/atmega3290pa/Makefile avr/lib/avr5/atmega32c1/Makefile avr/lib/avr5/atmega32hvb/Makefile avr/lib/avr5/atmega32hvbrevb/Makefile avr/lib/avr5/atmega32m1/Makefile avr/lib/avr5/atmega32u4/Makefile avr/lib/avr5/atmega32u6/Makefile avr/lib/avr5/atmega406/Makefile avr/lib/avr5/atmega64rfr2/Makefile avr/lib/avr5/atmega644rfr2/Makefile avr/lib/avr5/atmega64/Makefile avr/lib/avr5/atmega64a/Makefile avr/lib/avr5/atmega640/Makefile avr/lib/avr5/atmega644/Makefile avr/lib/avr5/atmega644a/Makefile avr/lib/avr5/atmega644p/Makefile avr/lib/avr5/atmega644pa/Makefile avr/lib/avr5/atmega645/Makefile avr/lib/avr5/atmega645a/Makefile avr/lib/avr5/atmega645p/Makefile avr/lib/avr5/atmega6450/Makefile avr/lib/avr5/atmega6450a/Makefile avr/lib/avr5/atmega6450p/Makefile avr/lib/avr5/atmega649/Makefile avr/lib/avr5/atmega649a/Makefile avr/lib/avr5/atmega649p/Makefile avr/lib/avr5/atmega6490/Makefile avr/lib/avr5/atmega6490a/Makefile avr/lib/avr5/atmega6490p/Makefile avr/lib/avr5/atmega64c1/Makefile avr/lib/avr5/atmega64hve/Makefile avr/lib/avr5/atmega64hve2/Makefile avr/lib/avr5/atmega64m1/Makefile avr/lib/avr5/m3000/Makefile"
 
 
 #avr51
@@ -14987,6 +15026,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${HAS_atmega324pa_TRUE}" && test -z "${HAS_atmega324pa_FALSE}"; then
   as_fn_error $? "conditional \"HAS_atmega324pa\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${HAS_atmega324pb_TRUE}" && test -z "${HAS_atmega324pb_FALSE}"; then
+  as_fn_error $? "conditional \"HAS_atmega324pb\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${HAS_atmega325_TRUE}" && test -z "${HAS_atmega325_FALSE}"; then
@@ -16255,6 +16298,7 @@ do
     "avr/lib/avr5/atmega324a/Makefile") CONFIG_FILES="$CONFIG_FILES avr/lib/avr5/atmega324a/Makefile" ;;
     "avr/lib/avr5/atmega324p/Makefile") CONFIG_FILES="$CONFIG_FILES avr/lib/avr5/atmega324p/Makefile" ;;
     "avr/lib/avr5/atmega324pa/Makefile") CONFIG_FILES="$CONFIG_FILES avr/lib/avr5/atmega324pa/Makefile" ;;
+    "avr/lib/avr5/atmega324pb/Makefile") CONFIG_FILES="$CONFIG_FILES avr/lib/avr5/atmega324pb/Makefile" ;;
     "avr/lib/avr5/atmega325/Makefile") CONFIG_FILES="$CONFIG_FILES avr/lib/avr5/atmega325/Makefile" ;;
     "avr/lib/avr5/atmega325a/Makefile") CONFIG_FILES="$CONFIG_FILES avr/lib/avr5/atmega325a/Makefile" ;;
     "avr/lib/avr5/atmega325p/Makefile") CONFIG_FILES="$CONFIG_FILES avr/lib/avr5/atmega325p/Makefile" ;;
