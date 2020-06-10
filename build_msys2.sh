@@ -4,13 +4,15 @@ export XMLDIR
 
 ./bootstrap
 
+cd devtools
+./generate_iosym.sh
+cd ..
+
 mkdir build
 cd build
 
 PATH=$INSTALL_DIR/bin:$PATH
 export PATH
-
-../devtools/generate_iosym.sh
 
 ../configure \
 --prefix=$INSTALL_DIR \
