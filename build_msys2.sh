@@ -12,10 +12,10 @@ export PATH
 
 ../devtools/generate_iosym.sh
 
-#../configure \
-#--prefix=$INSTALL_DIR \
-#--host=avr \
-#--datadir=$INSTALL_DIR
+../configure \
+--prefix=$INSTALL_DIR \
+--host=avr \
+--datadir=$INSTALL_DIR
 
-#make all -j $NUMBER_OF_PROCESSORS
-#make install
+make all -j $NUMBER_OF_PROCESSORS
+make install
