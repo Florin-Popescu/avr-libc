@@ -26,18 +26,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: memcpy.S 1944 2009-04-01 23:12:20Z arcanum $ */
-
-/** \file */
-/** \ingroup avr_string
-    \fn void *memcpy(void *dest, const void *src, size_t len)
-    \brief Copy a memory area.
-
-    The memcpy() function copies len bytes from memory area src to memory area
-    dest.  The memory areas may not overlap.  Use memmove() if the memory
-    areas do overlap.
-
-    \returns The memcpy() function returns a pointer to dest.  */
+/* $Id: memcpy.S 2515 2016-02-08 22:46:42Z joerg_wunsch $ */
 
 #if !defined(__DOXYGEN__)
 

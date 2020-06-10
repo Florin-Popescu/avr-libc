@@ -26,18 +26,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: strspn.S 2191 2010-11-05 13:45:57Z arcanum $ */
-
-/** \file */
-/** \ingroup avr_string
-    \fn size_t strspn(const char *s, const char *accept)
-
-    The strspn() function calculates the length of the initial segment
-    of \p s which consists entirely of characters in \p accept.
-		 
-    \return  The strspn() function returns the number of characters in
-    the initial segment of \p s which consist only of characters from \p
-    accept. The terminating zero is not considered as a part of string.	*/
+/* $Id: strspn.S 2515 2016-02-08 22:46:42Z joerg_wunsch $ */
 
 #if !defined(__AVR_TINY__)
 

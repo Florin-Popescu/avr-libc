@@ -26,21 +26,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: memchr.S 2191 2010-11-05 13:45:57Z arcanum $ */
-
-/** \file */
-/** \ingroup avr_string
-	\fn void *memchr(const void *src, int val, size_t len)
-    \brief Scan memory for a character.
-
-    The memchr() function scans the first len bytes of the memory area pointed
-    to by src for the character val.  The first byte to match val (interpreted
-    as an unsigned character) stops the operation.
-
-    \returns The memchr() function returns a pointer to the matching byte or
-    NULL if the character does not occur in the given memory area.  */
-
-#if !defined(__AVR_TINY__)
+/* $Id: memchr.S 2542 2017-06-12 22:08:58Z joerg_wunsch $ */
 
 #if !defined(__DOXYGEN__)
 
@@ -68,7 +54,12 @@ _U(memchr):
 	ld	__tmp_reg__, Z+
 	cp	__tmp_reg__, val_lo
 	brne	.L_memchr_loop
-	sbiw	ZL, 1		; undo post-increment
+	; undo post-increment
+#if !defined(__AVR_TINY__)
+	sbiw	ZL, 1
+#else
+	ld	__tmp_reg__, -Z
+#endif /*!__AVR_TINY__*/
 	X_movw	ret_lo, ZL
 	ret
 .L_memchr_notfound:
@@ -79,5 +70,3 @@ _U(memchr):
 	.size	_U(memchr), .L_memchr_end - _U(memchr)
 
 #endif /* not __DOXYGEN__ */
-
-#endif /* !defined(__AVR_TINY__) */

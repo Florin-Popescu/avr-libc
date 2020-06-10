@@ -27,7 +27,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: strstr.S 2191 2010-11-05 13:45:57Z arcanum $ */
+/* $Id: strstr.S 2542 2017-06-12 22:08:58Z joerg_wunsch $ */
 
 /*
    strstr.S
@@ -36,22 +36,6 @@
    Contributed by:
      Philip Soeberg <philip@soeberg.net>
 */
-
-/** \file */
-
-/** \ingroup avr_string
-    \fn char *strstr(const char *s1, const char *s2)
-    \brief Locate a substring.
-
-    The strstr() function finds the first occurrence of the substring \p
-    s2 in the string \p s1.  The terminating '\\0' characters are not
-    compared.
-
-    \returns The strstr() function returns a pointer to the beginning of
-    the substring, or \c NULL if the substring is not found. If \p s2
-    points to a string of zero length, the function returns \p s1. */
-
-#if !defined(__AVR_TINY__)
 
 #if !defined(__DOXYGEN__)
 
@@ -64,7 +48,7 @@
 
 #define chr1   r20
 #define	beg2   r21	/* begin of s2: s2[0]	*/
-#define chr2   r0
+#define chr2   __tmp_reg__
 
 ASSEMBLY_CLIB_SECTION
 .global _U(strstr)
@@ -103,12 +87,10 @@ _U(strstr):
 	ldi	s1_lo, lo8(1)
 	ldi	s1_hi, hi8(1)
 .L_match:
-	sbiw	s1_lo, 1	; restore after post-increment
+	X_sbiw	s1_lo, 1	; restore after post-increment
 .L_ret:
 	ret
 
 .size _U(strstr), . - _U(strstr)
 
 #endif /* not __DOXYGEN__ */
-
-#endif /* !defined(__AVR_TINY__) */

@@ -26,21 +26,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: strchrnul.S 2191 2010-11-05 13:45:57Z arcanum $ */
-
-/** \file */
-/** \ingroup avr_string
-    \fn char *strchrnul(const char *s, int c)
-
-    The strchrnul() function is like strchr() except that if \p c is not
-    found in \p s, then it returns a pointer to the null byte at the end
-    of \p s, rather than \c NULL. (Glibc, GNU extension.)
-
-    \return The strchrnul() function returns a pointer to the matched
-    character, or a pointer to the null byte at the end of \p s (i.e.,
-    \c s+strlen(s)) if the character is not found.	*/
-
-#if !defined(__AVR_TINY__)
+/* $Id: strchrnul.S 2542 2017-06-12 22:08:58Z joerg_wunsch $ */
 
 #if !defined(__DOXYGEN__)
 
@@ -54,16 +40,18 @@
 ENTRY strchrnul
 	X_movw	ZL, src_lo
 
-1:	ld	r0, Z+
-	cp	r0, val
-	cpse	r0, __zero_reg__
+1:	ld	__tmp_reg__, Z+
+	cp	__tmp_reg__, val
+	cpse	__tmp_reg__, __zero_reg__
 	brne	1b
-
-	sbiw	ZL, 1		; undo post-increment
+	; undo post-increment
+#if !defined(__AVR_TINY__)
+	sbiw	ZL, 1
+#else
+	ld	__tmp_reg__, -Z
+#endif /* !__AVR_TINY__ */
 	X_movw	ret_lo, ZL
 	ret
 ENDFUNC
 
 #endif /* not __DOXYGEN__ */
-
-#endif /* !defined(__AVR_TINY__) */

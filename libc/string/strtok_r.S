@@ -28,27 +28,7 @@
   POSSIBILITY OF SUCH DAMAGE.
 */
 
-/* $Id: strtok_r.S 2191 2010-11-05 13:45:57Z arcanum $ */
-
-/** \file */
-
-/** \ingroup avr_string
-    \fn char *strtok_r(char *string, const char *delim, char **last)
-    \brief Parses string into tokens.
-
-    strtok_r parses string into tokens. The first call to strtok_r
-    should have string as its first argument. Subsequent calls should have
-    the first argument set to NULL. If a token ends with a delimiter, this
-    delimiting character is overwritten with a '\\0' and a pointer to the next
-    character is saved for the next call to strtok_r. The delimiter string
-    \p delim may be different for each call. \p last is a user allocated char*
-    pointer. It must be the same while parsing the same string. strtok_r is
-    a reentrant version of strtok().
-
-    \returns The strtok_r() function returns a pointer to the next token or
-    NULL when no more tokens are found. */
-
-#if !defined(__AVR_TINY__)
+/* $Id: strtok_r.S 2542 2017-06-12 22:08:58Z joerg_wunsch $ */
 
 #if !defined(__DOXYGEN__)
 
@@ -105,13 +85,16 @@
 #define dch	r18
 
 ENTRY strtok_r
+#if defined(__AVR_TINY__)
+	push	dch
+#endif /* __AVR_TINY__ */
 	X_movw	ZL, lst_lo
 	ld	XL, Z+			; X = *last
 	ld	XH, Z
   ; check str
-	sbiw	str_lo, 0
+	X_sbiw	str_lo, 0
 	brne	1f
-	sbiw	XL, 0
+	X_sbiw	XL, 0
 	breq	.Lret			; end of string
 	X_movw	str_lo, XL		; continue parsing
 
@@ -137,7 +120,11 @@ ENTRY strtok_r
 	cp	dch, __tmp_reg__	; __tmp_reg__ != 0
 	brne	7f
 	st	-X, __zero_reg__
+#if !defined(__AVR_TINY__)
 	adiw	XL, 1
+#else
+	ld	__tmp_reg__, X+
+#endif /* __AVR_TINY__ */
 	rjmp	.Lret
 7:	tst	dch
 	brne	6b
@@ -152,10 +139,11 @@ ENTRY strtok_r
 .Lret:	X_movw	ZL, lst_lo		; *last = X
 	st	Z+, XL
 	st	Z, XH
+#if defined(__AVR_TINY__)
+	pop	dch
+#endif /* __AVR_TINY__ */
 	ret
 
 ENDFUNC
 
 #endif /* not __DOXYGEN__ */
-
-#endif /* !defined(__AVR_TINY__) */

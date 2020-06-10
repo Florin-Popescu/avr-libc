@@ -27,7 +27,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: strupr.S 1944 2009-04-01 23:12:20Z arcanum $ */
+/* $Id: strupr.S 2515 2016-02-08 22:46:42Z joerg_wunsch $ */
 
 /*
    strupr.S
@@ -36,20 +36,6 @@
    Contributors:
      Created by Reiner Patommel
 */
-
-/** \file */
-
-/** \ingroup avr_string
-    \fn char *strupr(char *s)
-    \brief Convert a string to upper case.
-
-    The strupr() function will convert a string to upper case. Only the lower
-    case alphabetic characters [a .. z] are converted.  Non-alphabetic
-    characters will not be changed.
-
-    \returns The strupr() function returns a pointer to the converted
-    string.  The pointer is the same as that passed in since the operation is
-    perform in place. */
 
 #if !defined(__DOXYGEN__)
 

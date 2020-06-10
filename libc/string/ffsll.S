@@ -26,16 +26,9 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: ffsll.S 2191 2010-11-05 13:45:57Z arcanum $ */
+/* $Id: ffsll.S 2515 2016-02-08 22:46:42Z joerg_wunsch $ */
 
 #if !defined(__AVR_TINY__)
-
-/** \file */
-
-/** \ingroup avr_string
-    \fn int ffsll (long long val);
-
-    \brief Same as ffs(), for an argument of type long long.	*/
 
 #ifndef	__DOXYGEN__
 

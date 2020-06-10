@@ -26,21 +26,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: strcmp.S 1944 2009-04-01 23:12:20Z arcanum $ */
-
-/** \file */
-
-/** \ingroup avr_string
-    \fn int strcmp(const char *s1, const char *s2)
-    \brief Compare two strings.
-
-    The strcmp() function compares the two strings \p s1 and \p s2.
-
-    \returns The strcmp() function returns an integer less than, equal
-    to, or greater than zero if \p s1 is found, respectively, to be less
-    than, to match, or be greater than \p s2. A consequence of the
-    ordering used by strcmp() is that if \p s1 is an initial substring
-    of \p s2, then \p s1 is considered to be "less than" \p s2.	*/
+/* $Id: strcmp.S 2515 2016-02-08 22:46:42Z joerg_wunsch $ */
 
 #if !defined(__DOXYGEN__)
 

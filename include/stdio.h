@@ -33,7 +33,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
 
-  $Id: stdio.h 2503 2016-02-07 22:59:47Z joerg_wunsch $
+  $Id: stdio.h 2539 2017-06-11 15:25:02Z joerg_wunsch $
 */
 
 #ifndef _STDIO_H_
@@ -214,7 +214,7 @@
     {
 
       if (c == '\n')
-        uart_putchar('\r');
+        uart_putchar('\r', stream);
       loop_until_bit_is_set(UCSRA, UDRE);
       UDR = c;
       return 0;
@@ -594,7 +594,7 @@ extern int	fclose(FILE *__stream);
    \par Notes:
    - For floating-point conversions, if you link default or minimized
      version of vfprintf(), the symbol \c ? will be output and double
-     argument will be skiped. So you output below will not be crashed.
+     argument will be skipped. So you output below will not be crashed.
      For default version the width field and the "pad to left" ( symbol
      minus ) option will work in this case.
    - The \c hh length modifier is ignored (\c char argument is

@@ -26,14 +26,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: ffsl.S 2166 2010-06-13 13:14:47Z joerg_wunsch $ */
-
-/** \file */
-
-/** \ingroup avr_string
-    \fn int ffsl (long val);
-
-    \brief Same as ffs(), for an argument of type long.	*/
+/* $Id: ffsl.S 2515 2016-02-08 22:46:42Z joerg_wunsch $ */
 
 #ifndef	__DOXYGEN__
 

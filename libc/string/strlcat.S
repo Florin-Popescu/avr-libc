@@ -33,23 +33,7 @@
 
 */
 
-/* $Id: strlcat.S 2267 2011-12-29 07:53:03Z joerg_wunsch $ */
-
-/** \file */
-
-/** \ingroup avr_string
-    \fn size_t strlcat (char *dst, const char *src, size_t siz)
-    \brief Concatenate two strings.
-
-    Appends \p src to string \p dst of size \p siz (unlike strncat(),
-    \p siz is the full size of \p dst, not space left).  At most \p siz-1
-    characters will be copied.  Always NULL terminates (unless \p siz <=
-    \p strlen(dst)).
-
-    \returns The strlcat() function returns strlen(src) + MIN(siz,
-    strlen(initial dst)).  If retval >= siz, truncation occurred.  */
-
-#if !defined(__AVR_TINY__)
+/* $Id: strlcat.S 2542 2017-06-12 22:08:58Z joerg_wunsch $ */
 
 #if !defined(__DOXYGEN__)
 
@@ -98,7 +82,7 @@ ENTRY strlcat
 	ld	__tmp_reg__, X+
 	tst	__tmp_reg__
 	brne	1b
-	sbiw	XL, 1
+	X_sbiw	XL, 1
 	rjmp	3f
 
   ; copy loop
@@ -128,5 +112,3 @@ ENTRY strlcat
 
 ENDFUNC
 #endif /* not __DOXYGEN__ */
-
-#endif /* not __AVR_TINY__ */

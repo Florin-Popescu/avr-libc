@@ -26,20 +26,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: memmem.S 2503 2016-02-07 22:59:47Z joerg_wunsch $ */
-
-/** \file */
-
-/** \ingroup avr_string
-    \fn void *memmem(const void *s1, size_t len1, const void *s2, size_t len2)
-
-    The memmem() function finds the start of the first occurrence of the
-    substring \p s2 of length \p len2 in the memory area \p s1 of length
-    \p len1.
-
-    \return The memmem() function returns a pointer to the beginning of
-    the substring, or \c NULL if the substring is not found. If \p len2
-    is zero, the function returns \p s1.	*/
+/* $Id: memmem.S 2515 2016-02-08 22:46:42Z joerg_wunsch $ */
 
 #if !defined(__AVR_TINY__)
 

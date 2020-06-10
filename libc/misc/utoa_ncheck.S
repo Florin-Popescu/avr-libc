@@ -26,10 +26,9 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: utoa_ncheck.S 2420 2014-04-28 14:05:10Z pitchumani $	*/
+/* $Id: utoa_ncheck.S 2542 2017-06-12 22:08:58Z joerg_wunsch $	*/
 
 #if	!defined (__DOXYGEN__)
-#if	!defined (__AVR_TINY__)
 
 #include "asmdef.h"
 
@@ -77,7 +76,7 @@ ENTRY	__utoa_common
 	st	Z+, digit
 
     ; Iterate until all digits are sucked out of VAL.
-	sbiw	val_lo, 0
+	X_sbiw	val_lo, 0
 	brne	1b
 
     ; Store the sign (if any)
@@ -93,5 +92,4 @@ ENTRY	__utoa_common
 
 ENDFUNC
 
-#endif	/* !__AVR_TINY__ */
 #endif	/* !__DOXYGEN__ */

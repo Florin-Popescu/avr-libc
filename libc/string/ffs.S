@@ -26,22 +26,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: ffs.S 2166 2010-06-13 13:14:47Z joerg_wunsch $ */
-
-/** \file */
-
-/** \ingroup avr_string
-    \fn int ffs (int val);
-
-    \brief This function finds the first (least significant) bit set in the input value.
-
-    \returns The ffs() function returns the position of the first
-    (least significant) bit set in the word val, or 0 if no bits are set.
-    The least significant bit is position 1.
-
-    \note For expressions that are constant at compile time, consider
-    using the \ref _FFS macro instead.
-*/
+/* $Id: ffs.S 2515 2016-02-08 22:46:42Z joerg_wunsch $ */
 
 #ifndef	__DOXYGEN__
 

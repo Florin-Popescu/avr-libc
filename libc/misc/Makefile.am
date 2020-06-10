@@ -26,13 +26,16 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 #
-# $Id: Makefile.am 1981 2009-06-05 23:13:29Z dmix $
+# $Id: Makefile.am 2528 2016-11-29 11:29:15Z pitchumani $
 #
 
 include $(top_srcdir)/libc/misc/Files.am
 
 EXTRA_DIST = \
+	$(eeprom_c_sources) \
 	$(eeprom_asm_sources) \
+	$(dev_c_sources) \
+	$(dev_asm_sources) \
 	$(misc_a_asm_sources) \
 	$(misc_a_c_sources) \
 	$(misc_a_extra_dist)

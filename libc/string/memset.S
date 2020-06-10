@@ -26,17 +26,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: memset.S 1944 2009-04-01 23:12:20Z arcanum $ */
-
-/** \file */
-/** \ingroup avr_string
-    \fn void *memset(void *dest, int val, size_t len)
-    \brief Fill memory with a constant byte.
-
-    The memset() function fills the first len bytes of the memory area pointed
-    to by dest with the constant byte val.
-
-    \returns The memset() function returns a pointer to the memory area dest. */
+/* $Id: memset.S 2515 2016-02-08 22:46:42Z joerg_wunsch $ */
 
 #if !defined(__DOXYGEN__)
 

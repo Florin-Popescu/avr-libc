@@ -26,20 +26,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: strncat.S 2191 2010-11-05 13:45:57Z arcanum $ */
-
-/** \file */
-/** \ingroup avr_string
-    \fn char *strncat(char *dest, const char *src, size_t len)
-    \brief Concatenate two strings.
-
-    The strncat() function is similar to strcat(), except that only the first
-    n characters of src are appended to dest.
-
-    \returns The strncat() function returns a pointer to the resulting string
-    dest.  */
-
-#if !defined(__AVR_TINY__)
+/* $Id: strncat.S 2542 2017-06-12 22:08:58Z joerg_wunsch $ */
 
 #if !defined(__DOXYGEN__)
 
@@ -62,7 +49,7 @@ _U(strncat):
 	ld	__tmp_reg__, X+
 	tst	__tmp_reg__
 	brne	.L_strncat_skip
-	sbiw	XL, 1		; undo post-increment (point the the NUL)
+	X_sbiw	XL, 1		; undo post-increment (point to the NUL)
 .L_strncat_loop:
 	subi	len_lo, lo8(1)
 	sbci	len_hi, hi8(1)
@@ -81,5 +68,3 @@ _U(strncat):
 	.size	_U(strncat), .L_strncat_end - _U(strncat)
 
 #endif /* not __DOXYGEN__ */
-
-#endif /* !defined(__AVR_TINY__) */

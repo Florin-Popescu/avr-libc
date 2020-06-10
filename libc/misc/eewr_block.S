@@ -26,7 +26,7 @@
    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
    POSSIBILITY OF SUCH DAMAGE.	*/
 
-/* $Id: eewr_block.S 1979 2009-06-05 23:08:14Z dmix $	*/
+/* $Id: eewr_block.S 2528 2016-11-29 11:29:15Z pitchumani $	*/
 
 #ifndef	__DOXYGEN__
 
@@ -34,13 +34,15 @@
 
 #if	E2END && __AVR_ARCH__ > 1
 
+/* Skip for Xmega with valid page size. Refer. eewr_block_xmega.c.  */
+#if !(__AVR_XMEGA__ && defined (E2PAGESIZE) && (E2PAGESIZE))
+
 #include <avr/eeprom.h>
 #include "asmdef.h"
 #include "eedef.h"
 
 /* void eeprom_write_block (const void *sram, void *eepr, size_t n)
  */
-
 #define sram_lo	r24	/* SRAM address		*/
 #define eepr_lo	r22	/* EEPROM address	*/
 
@@ -71,6 +73,6 @@ ENTRY	eeprom_write_block
 	ret
 
 ENDFUNC
-
+#endif  /* All except __AVR_XMEGA__ && E2PAGESIZE */
 #endif	/* E2END && __AVR_ARCH__ > 1 */
 #endif	/* !__DOXYGEN__ */

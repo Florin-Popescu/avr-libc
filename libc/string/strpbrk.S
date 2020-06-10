@@ -26,22 +26,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: strpbrk.S 2191 2010-11-05 13:45:57Z arcanum $ */
-
-/** \file */
-/** \ingroup avr_string
-    \fn char *strpbrk(const char *s, const char *accept)
-    
-    The strpbrk() function locates the first occurrence in the string
-    \p s of any of the characters in the string \p accept.
-
-    \return  The strpbrk() function returns a pointer to the character
-    in \p s that matches one of the characters in \p accept, or \c NULL
-    if no such character is found. The terminating zero is not
-    considered as a part of string: if one or both args are empty, the
-    result will \c NULL.	*/
-
-#if !defined(__AVR_TINY__)
+/* $Id: strpbrk.S 2542 2017-06-12 22:08:58Z joerg_wunsch $ */
 
 #ifndef	__DOXYGEN__
 
@@ -69,18 +54,20 @@ _U(strpbrk):
 	breq	3f
   ; check an occurance
 	X_movw	ZL, acc_lo
-2:	ld	r0, Z+
-	cp	r0, ret_lo
-	cpse	r0, __zero_reg__
+2:	ld	__tmp_reg__, Z+
+	cp	__tmp_reg__, ret_lo
+	cpse	__tmp_reg__, __zero_reg__
 	brne	2b
 	brne	1b		; branch if end of accept[] is reached
   ; OK, is found
+#if !defined(__AVR_TINY__)
 	sbiw	XL, 1
+#else
+	ld	__tmp_reg__, -X
+#endif /* !__AVR_TINY__ */
 	X_movw	ret_lo, XL
 3:	ret
 
 	.size _U(strpbrk), . - _U(strpbrk)
 
 #endif	/* !__DOXYGEN__ */
-
-#endif /* !defined(__AVR_TINY__) */

@@ -26,10 +26,13 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 #
-# $Id: Files.am 2298 2012-07-29 15:30:34Z dmix $
+# $Id: Files.am 2528 2016-11-29 11:29:15Z pitchumani $
 #
 
 misc_a_c_sources =
+
+eeprom_c_sources = \
+	eewr_block_xmega.c
 
 eeprom_asm_sources = \
 	eerd_block.S \
@@ -44,6 +47,11 @@ eeprom_asm_sources = \
 	eewr_byte.S \
 	eewr_dword.S \
 	eewr_word.S
+
+dev_c_sources =
+
+dev_asm_sources = \
+	ccp_write.S
 
 misc_a_asm_sources = \
 	itoa.S \

@@ -26,23 +26,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: strrchr.S 2191 2010-11-05 13:45:57Z arcanum $ */
-
-/** \file */
-/** \ingroup avr_string
-    \fn char *strrchr(const char *src, int val)
-    \brief Locate character in string.
-
-    The strrchr() function returns a pointer to the last occurrence of the
-    character val in the string src.
-
-    Here "character" means "byte" - these functions do not work with wide or
-    multi-byte characters.
-
-    \returns The strrchr() function returns a pointer to the matched character
-    or NULL if the character is not found. */
-
-#if !defined(__AVR_TINY__)
+/* $Id: strrchr.S 2542 2017-06-12 22:08:58Z joerg_wunsch $ */
 
 #if !defined(__DOXYGEN__)
 
@@ -71,11 +55,9 @@ _U(strrchr):
 .L_strrchr_noteq:
 	tst	__tmp_reg__
 	brne	.L_strrchr_loop
-	sbiw	ret_lo, 1	; undo post-increment
+	X_sbiw	ret_lo, 1	; undo post-increment
 	ret
 .L_strrchr_end:
 	.size	_U(strrchr), .L_strrchr_end - _U(strrchr)
 
 #endif /* not __DOXYGEN__ */
-
-#endif /* !defined(__AVR_TINY__) */

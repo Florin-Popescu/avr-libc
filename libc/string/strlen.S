@@ -26,18 +26,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: strlen.S 1944 2009-04-01 23:12:20Z arcanum $ */
-
-/** \file */
-/** \ingroup avr_string
-    \fn size_t strlen(const char *src)
-    \brief Calculate the length of a string.
-
-    The strlen() function calculates the length of the string src, not
-    including the terminating '\\0' character.
-
-    \returns The strlen() function returns the number of characters in
-    src.  */
+/* $Id: strlen.S 2515 2016-02-08 22:46:42Z joerg_wunsch $ */
 
 #if !defined(__DOXYGEN__)
 

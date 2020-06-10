@@ -26,7 +26,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* $Id: eu_dst.h 2492 2015-10-27 09:07:56Z swfltek $ */
+/* $Id: eu_dst.h 2537 2017-03-31 19:46:35Z joerg_wunsch $ */
 
 /**
     Daylight Saving function for the European Union. To utilize this function, you must
@@ -88,24 +88,25 @@ extern          "C" {
                         n = 31 - d;
                         n /= 7; /* number of Sundays left in the month */
 
-                        d = d + 7 * n;  /* mday of final Sunday */
+                        d = d + 7 * n;  /* d: mday of final Sunday */
 
         if              (month == MARCH) {
-            if (d < mday)
+            if (mday < d) /* before last Sunday */
                 return 0;
-            if (d > mday)
+            if (mday > d) /* past last Sunday */
                 return ONE_HOUR;
-            if (hour < 2)
+            if (hour < 2) /* at last Sunday, before switching */
                 return 0;
-            return ONE_HOUR;
+            return ONE_HOUR; /* at last Sunday, after switching */
         }
-        if              (d < mday)
+	/* month == OCTOBER */
+        if              (mday < d) /* before last Sunday */
                             return ONE_HOUR;
-        if              (d > mday)
+        if              (mday > d) /* past last Sunday */
                             return 0;
-        if              (hour < 2)
+        if              (hour < 2) /* at last Sunday, before switching */
                             return ONE_HOUR;
-                        return 0;
+                        return 0; /* at last Sunday, after switchin */
 
     }
 

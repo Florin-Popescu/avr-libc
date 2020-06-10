@@ -26,10 +26,9 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: utoa.S 2420 2014-04-28 14:05:10Z pitchumani $	*/
+/* $Id: utoa.S 2542 2017-06-12 22:08:58Z joerg_wunsch $	*/
 
 #if	!defined (__DOXYGEN__)
-#if	!defined (__AVR_TINY__)
 
 #include "asmdef.h"
 
@@ -60,5 +59,4 @@ ENTRY	__utoa
 
 ENDFUNC
 
-#endif	/* !__AVR_TINY__ */
 #endif	/* !__DOXYGEN__ */

@@ -29,7 +29,7 @@
    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
    POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: gcrt1.S 2459 2014-11-21 05:32:39Z saaadhu $ */
+/* $Id: gcrt1.S 2519 2016-03-17 12:11:50Z saaadhu $ */
 
 #if (__GNUC__ < 3) || (__GNUC__ == 3 && __GNUC_MINOR__ < 3)
 #error "GCC version >= 3.3 required"
@@ -372,3 +372,12 @@ __do_copy_data:
 .L__desc_end:
     .balign 4
 
+  /* Set REGION_LENGTH symbol values for well known memory regions.
+  The default linker script uses these symbols to set MEMORY 
+  region lengths, and by defining these here, the linker can detect
+  memory overflows accurately on a per device basis, since the 
+  values are picked up from the device header file.
+  */
+
+  .weak __FUSE_REGION_LENGTH__
+  .set __FUSE_REGION_LENGTH__, FUSE_MEMORY_SIZE

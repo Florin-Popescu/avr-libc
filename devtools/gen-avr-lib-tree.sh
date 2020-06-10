@@ -29,7 +29,7 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 #
-# $Id: gen-avr-lib-tree.sh 2499 2016-01-28 14:41:31Z pitchumani $
+# $Id: gen-avr-lib-tree.sh 2544 2017-08-04 08:50:27Z pitchumani $
 #
 
 # This is a script to automate the generation of the avr/lib/ tree. Since
@@ -47,6 +47,7 @@ PATH=/usr/xpg4/bin:$PATH
 
 CFLAGS_SPACE="-mcall-prologues -Os"
 CFLAGS_TINY_STACK="-msp8 -mcall-prologues -Os"
+CFLAGS_SHORT_CALLS="-mshort-calls -mcall-prologues -Os"
 CFLAGS_BIG_MEMORY='-Os $(FNO_JUMP_TABLES)'
 CFLAGS_SPEED="-Os"
 
@@ -212,7 +213,6 @@ atmega323:crtm323.o:${DEV_DEFS}:${CFLAGS_SPACE}:${DEV_ASFLAGS};\
 atmega324a:crtm324a.o:${DEV_DEFS}:${CFLAGS_SPACE}:${DEV_ASFLAGS};\
 atmega324p:crtm324p.o:${DEV_DEFS}:${CFLAGS_SPACE}:${DEV_ASFLAGS};\
 atmega324pa:crtm324pa.o:${DEV_DEFS}:${CFLAGS_SPACE}:${DEV_ASFLAGS};\
-atmega324pb:crtm324pb.o:${DEV_DEFS}:${CFLAGS_SPACE}:${DEV_ASFLAGS};\
 atmega325:crtm325.o:${DEV_DEFS}:${CFLAGS_SPACE}:${DEV_ASFLAGS};\
 atmega325a:crtm325a.o:${DEV_DEFS}:${CFLAGS_SPACE}:${DEV_ASFLAGS};\
 atmega325p:crtm325p.o:${DEV_DEFS}:${CFLAGS_SPACE}:${DEV_ASFLAGS};\
@@ -303,6 +303,12 @@ atxmega32d4:crtx32d4.o:${DEV_DEFS}:${CFLAGS_SPACE}:${DEV_ASFLAGS};\
 atxmega32e5:crtx32e5.o:${DEV_DEFS}:${CFLAGS_SPACE}:${DEV_ASFLAGS}\
 "
 
+AVRXMEGA3_DEV_INFO="\
+"
+
+AVRXMEGA3SC_DEV_INFO="\
+"
+
 AVRXMEGA4_DEV_INFO="\
 atxmega64a3:crtx64a3.o:${DEV_DEFS}:${CFLAGS_BIG_MEMORY}:${DEV_ASFLAGS};\
 atxmega64a3u:crtx64a3u.o:${DEV_DEFS}:${CFLAGS_BIG_MEMORY}:${DEV_ASFLAGS};\
@@ -372,6 +378,8 @@ avr5::AVR5_DEV_INFO:${LIB_DEFS}:${CFLAGS_SPACE}:${DEV_ASFLAGS};\
 avr51::AVR51_DEV_INFO:${LIB_DEFS}:${CFLAGS_BIG_MEMORY}:${DEV_ASFLAGS};\
 avr6::AVR6_DEV_INFO:${LIB_DEFS}:${CFLAGS_BIG_MEMORY}:${DEV_ASFLAGS};\
 avrxmega2::AVRXMEGA2_DEV_INFO:${LIB_DEFS}:${CFLAGS_SPACE}:${DEV_ASFLAGS};\
+avrxmega3::AVRXMEGA3_DEV_INFO:${LIB_DEFS}:${CFLAGS_SPACE}:${DEV_ASFLAGS};\
+avrxmega3:short-calls:AVRXMEGA3SC_DEV_INFO:${LIB_DEFS}:${CFLAGS_SHORT_CALLS}:${DEV_ASFLAGS};\
 avrxmega4::AVRXMEGA4_DEV_INFO:${LIB_DEFS}:${CFLAGS_BIG_MEMORY}:${DEV_ASFLAGS};\
 avrxmega5::AVRXMEGA5_DEV_INFO:${LIB_DEFS}:${CFLAGS_BIG_MEMORY}:${DEV_ASFLAGS};\
 avrxmega6::AVRXMEGA6_DEV_INFO:${LIB_DEFS}:${CFLAGS_BIG_MEMORY}:${DEV_ASFLAGS};\
@@ -468,7 +476,18 @@ do
 		    -e "s/<<crt_cflags>>/$crt_cflags/g" \
 		    -e "s/<<crt_asflags>>/$crt_asflags/g"  \
 		    -e "s/<<install_dir>>/$inst_dir_masked/g" $dev/Makefile.am \
-		    > $dev/tempfile && mv -f $dev/tempfile $dev/Makefile.am
+		    > $dev/tempfile
+
+		case "$dev" in
+		  at90s1200|attiny11|attiny12|attiny15|attiny28)
+			sed -e "s/\$(eeprom_c_sources)//g" \
+				-e "s/\$(dev_c_sources)//g" $dev/tempfile \
+			> $dev/tempfile_2 && mv -f $dev/tempfile_2 $dev/Makefile.am
+			;;
+		  *)
+			mv -f $dev/tempfile $dev/Makefile.am
+			;;
+		esac
 
 		DEV_SUBDIRS="$DEV_SUBDIRS $dev"
 	done

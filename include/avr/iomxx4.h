@@ -30,7 +30,7 @@
 
 /* avr/iomXX4.h - definitions for ATmega164P/324P/644P and ATmega644 */
 
-/* $Id: iomxx4.h 2460 2014-12-03 05:39:25Z pitchumani $ */
+/* $Id: iomxx4.h 2546 2017-08-23 06:21:07Z pitchumani $ */
 
 #ifndef _AVR_IOMXX4_H_
 #define _AVR_IOMXX4_H_ 1
@@ -366,8 +366,8 @@
 
 /* Reserved [0x62..0x63] */
 
-#define PRR	_SFR_MEM8(0x64)  /* Datasheets: ATmega164P/324P/644P 8011D–AVR–02/07
-                                   and ATmega644 2593L–AVR–02/07.  */
+#define PRR	_SFR_MEM8(0x64)  /* Datasheets: ATmega164P/324P/644P 8011D-AVR-02/07
+                                   and ATmega644 2593L-AVR-02/07.  */
 #define PRR0	_SFR_MEM8(0x64)  /* AVR Studio 4.13, build 524.  */
 #define PRTWI		7
 #define PRTIM2		6

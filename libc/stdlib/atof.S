@@ -26,17 +26,7 @@
    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
    POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: atof.S 1944 2009-04-01 23:12:20Z arcanum $ */
-
-/** \ingroup avr_stdlib
-    \fn  double atof (const char *nptr)
-
-    The atof() function converts the initial portion of the string pointed
-    to by \a nptr to double representation.
-
-    It is equivalent to calling
-	\code strtod(nptr, (char **)0); \endcode
- */
+/* $Id: atof.S 2515 2016-02-08 22:46:42Z joerg_wunsch $ */
 
 #ifndef	__DOXYGEN__
 

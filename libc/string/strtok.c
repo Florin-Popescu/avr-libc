@@ -26,26 +26,8 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: strtok.c 2503 2016-02-07 22:59:47Z joerg_wunsch $ */
+/* $Id: strtok.c 2515 2016-02-08 22:46:42Z joerg_wunsch $ */
 
-/** \file */
-/** \ingroup avr_string
-    \fn char *strtok(char *s, const char *delim)
-    \brief Parses the string s into tokens.
-
-    strtok parses the string s into tokens. The first call to strtok
-    should have s as its first argument. Subsequent calls should have
-    the first argument set to NULL. If a token ends with a delimiter, this
-    delimiting character is overwritten with a '\\0' and a pointer to the next
-    character is saved for the next call to strtok. The delimiter string
-    delim may be different for each call.
-    
-    \returns The strtok() function returns a pointer to the next token or
-    NULL when no more tokens are found. 
-    
-    \note strtok() is NOT reentrant. For a reentrant version of this function
-    see \c strtok_r().
-*/
 
 #include <string.h>
 #include "sectionname.h"
@@ -59,4 +41,4 @@ char *
 strtok(char *s, const char *delim)
 {
     return strtok_r(s, delim, &p);
-} 
+}

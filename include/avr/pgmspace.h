@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: pgmspace.h 2503 2016-02-07 22:59:47Z joerg_wunsch $ */
+/* $Id: pgmspace.h 2544 2017-08-04 08:50:27Z pitchumani $ */
 
 /*
    pgmspace.h
@@ -892,8 +892,8 @@ typedef uint64_t  prog_uint64_t __attribute__((__progmem__,deprecated("prog_uint
 }))
 
 /*
-Check for architectures that implement RAMPD (avrxmega3, avrxmega5,
-avrxmega7) as they need to save/restore RAMPZ for ELPM macros so it does
+Check for architectures that implement RAMPD (avrxmega5, avrxmega7)
+as they need to save/restore RAMPZ for ELPM macros so it does
 not interfere with data accesses.
 */
 #if defined (__AVR_HAVE_RAMPD__)

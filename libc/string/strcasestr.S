@@ -26,21 +26,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: strcasestr.S 2503 2016-02-07 22:59:47Z joerg_wunsch $ */
-
-/** \file */
-
-/** \ingroup avr_string
-    \fn char *strcasestr(const char *s1, const char *s2)
-
-    The strcasestr() function finds the first occurrence of the
-    substring \p s2 in the string \p s1. This is like strstr(), except
-    that it ignores case of alphabetic symbols in searching for the
-    substring. (Glibc, GNU extension.)
-
-    \return The strcasestr() function returns a pointer to the beginning
-    of the substring, or \c NULL if the substring is not found. If \p s2
-    points to a string of zero length, the function returns \p s1. */
+/* $Id: strcasestr.S 2515 2016-02-08 22:46:42Z joerg_wunsch $ */
 
 #if !defined(__AVR_TINY__)
 

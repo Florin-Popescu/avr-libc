@@ -26,21 +26,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: memrchr.S 2191 2010-11-05 13:45:57Z arcanum $ */
-
-/** \file */
-/** \ingroup avr_string
-    \fn void *memrchr(const void *src, int val, size_t len)
-
-    The memrchr() function is like the memchr() function, except that it
-    searches backwards from the end of the \p len bytes pointed to by \p
-    src instead of forwards from the front. (Glibc, GNU extension.)
-
-    \return The memrchr() function returns a pointer to the matching
-    byte or \c NULL if the character does not occur in the given memory
-    area.	*/
-
-#if !defined(__AVR_TINY__)
+/* $Id: memrchr.S 2542 2017-06-12 22:08:58Z joerg_wunsch $ */
 
 #if !defined(__DOXYGEN__)
 
@@ -56,13 +42,13 @@
 
 ENTRY memrchr
 	X_movw	ZL, len_lo
-	adiw	ZL, 0
+	X_sbiw	ZL, 0
 	breq	2f			; len is 0, return NULL
 	add	ZL, src_lo
 	adc	ZH, src_hi
 
-1:	ld	r0, -Z
-	cp	r0, val
+1:	ld	__tmp_reg__, -Z
+	cp	__tmp_reg__, val
 	breq	2f			; val is found
 	subi	len_lo, lo8(1)
 	sbci	len_hi, hi8(1)
@@ -74,5 +60,3 @@ ENTRY memrchr
 ENDFUNC
 
 #endif /* not __DOXYGEN__ */
-
-#endif /* !defined(__AVR_TINY__) */

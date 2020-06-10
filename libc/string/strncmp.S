@@ -26,19 +26,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: strncmp.S 1944 2009-04-01 23:12:20Z arcanum $ */
-
-/** \file */
-/** \ingroup avr_string
-    \fn int strncmp(const char *s1, const char *s2, size_t len)
-    \brief Compare two strings.
-
-    The strncmp() function is similar to strcmp(), except it only compares the
-    first (at most) n characters of s1 and s2.
-
-    \returns The strncmp() function returns an integer less than, equal to, or
-    greater than zero if s1 (or the first n bytes thereof) is found,
-    respectively, to be less than, to match, or be greater than s2.  */
+/* $Id: strncmp.S 2515 2016-02-08 22:46:42Z joerg_wunsch $ */
 
 #if !defined(__DOXYGEN__)
 

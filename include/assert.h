@@ -33,7 +33,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
 
-  $Id: assert.h 2290 2012-02-04 02:08:47Z dmix $
+  $Id: assert.h 2526 2016-10-19 10:36:48Z pitchumani $
 */
 
 /** \file */
@@ -94,6 +94,12 @@
 #    endif /* __ASSERT_USE_STDERR */
 #  endif /* NDEBUG */
 #endif /* DOXYGEN */
+
+#if (defined __STDC_VERSION__ && __STDC_VERSION__ >= 201112L) || \
+    ((_GNUC_ > 4 || (_GNUC_ == 4 && _GNUC_MINOR_ >= 6)) && !defined __cplusplus)
+#  undef static_assert
+#  define static_assert _Static_assert
+#endif
 
 #ifdef __cplusplus
 extern "C" {

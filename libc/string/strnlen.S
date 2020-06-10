@@ -26,21 +26,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: strnlen.S 1944 2009-04-01 23:12:20Z arcanum $ */
-
-/** \file */
-/** \ingroup avr_string
-    \fn size_t strnlen(const char *src, size_t len)
-    \brief Determine the length of a fixed-size string.
-
-    The strnlen function returns the number of characters in the string
-    pointed to by src, not including the terminating '\\0' character, but at
-    most len. In doing this, strnlen looks only at the first len characters at
-    src and never beyond src+len.
-
-    \returns The strnlen function returns strlen(src), if that is less than
-    len, or len if there is no '\\0' character among the first len
-    characters pointed to by src. */
+/* $Id: strnlen.S 2515 2016-02-08 22:46:42Z joerg_wunsch $ */
 
 #if !defined(__DOXYGEN__)
 

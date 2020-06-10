@@ -27,7 +27,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: strrev.S 2191 2010-11-05 13:45:57Z arcanum $ */
+/* $Id: strrev.S 2542 2017-06-12 22:08:58Z joerg_wunsch $ */
 
 /*
    strrev.S
@@ -36,18 +36,6 @@
    Contributors:
      Created by Reiner Patommel
 */
-/** \file */
-
-/** \ingroup avr_string
-    \fn char *strrev(char *s)
-    \brief Reverse a string.
-
-    The strrev() function reverses the order of the string.
-
-    \returns The strrev() function returns a pointer to the beginning of the
-    reversed string.  */
-
-#if !defined(__AVR_TINY__)
 
 #if !defined(__DOXYGEN__)
 
@@ -70,7 +58,7 @@ _U(strrev):
 	ld	ltemp, Z+
 	tst	ltemp
 	brne	1b
-	sbiw	ZL, 2		; to last nonzero byte
+	X_sbiw	ZL, 2		; to last nonzero byte
 	rjmp	3f
   ; swap bytes
 2:	ld	ltemp, X
@@ -86,5 +74,3 @@ _U(strrev):
     .size _U(strrev), . - _U(strrev)
 
 #endif /* not __DOXYGEN__ */
-
-#endif /* !defined(__AVR_TINY__) */

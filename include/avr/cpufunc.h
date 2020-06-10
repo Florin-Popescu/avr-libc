@@ -28,12 +28,14 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: cpufunc.h 2307 2013-01-26 22:39:58Z dmix $ */
+/* $Id: cpufunc.h 2529 2016-12-05 06:09:28Z pitchumani $ */
 
 /* avr/cpufunc.h - Special CPU functions */
 
 #ifndef _AVR_CPUFUNC_H_
 #define _AVR_CPUFUNC_H_ 1
+
+#include <stdint.h>
 
 /** \file */
 /** \defgroup avr_cpufunc <avr/cpufunc.h>: Special AVR CPU functions
@@ -79,5 +81,13 @@
 #else  /* real code */
 #define _MemoryBarrier() __asm__ __volatile__("":::"memory")
 #endif  /* __DOXYGEN__ */
+
+/**
+   \ingroup avr_cpufunc
+
+   Write \a __value to Configuration Change Protected (CCP) IO register
+   at \a __ioaddr.
+ */
+void ccp_write_io (uint8_t *__ioaddr, uint8_t __value);
 
 #endif /* _AVR_CPUFUNC_H_ */

@@ -26,17 +26,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: memmove.S 1944 2009-04-01 23:12:20Z arcanum $ */
-
-/** \file */
-/** \ingroup avr_string
-    \fn void *memmove(void *dest, const void *src, size_t len)
-    \brief Copy memory area.
-
-    The memmove() function copies len bytes from memory area src to memory area
-    dest.  The memory areas may overlap.
-
-    \returns The memmove() function returns a pointer to dest.  */
+/* $Id: memmove.S 2515 2016-02-08 22:46:42Z joerg_wunsch $ */
 
 #if !defined(__DOXYGEN__)
 

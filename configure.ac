@@ -30,7 +30,7 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 #
-# $Id: configure.ac 2512 2016-02-08 21:07:48Z joerg_wunsch $
+# $Id: configure.ac 2544 2017-08-04 08:50:27Z pitchumani $
 #
 # Process this file with autoconf to produce a configure script.
 #
@@ -40,8 +40,8 @@ dnl        macro name           value            description
 m4_define([avr_libc_major],    [2])dnl           major version
 m4_define([avr_libc_minor],    [0])dnl           minor version
 m4_define([avr_libc_revision], [0])dnl           revision (dot-dot version)
-m4_define([avr_libc_revision_suffix], [])dnl     revision suffix (if any)
-m4_define([avr_libc_reldate],  [20150208])dnl    release date
+m4_define([avr_libc_revision_suffix], [svn])dnl  revision suffix (if any)
+m4_define([avr_libc_reldate],  [20150209])dnl    release date
 dnl end of library versioning data
 
 m4_define([avr_libc_version],
@@ -54,7 +54,7 @@ m4_define([avr_libc_version_numeric],
 AC_INIT(avr-libc, avr_libc_version, avr-libc-dev@nongnu.org)
 
 AC_PREREQ(2.59)
-AC_REVISION($Revision: 2512 $)
+AC_REVISION($Revision: 2544 $)
 
 AC_CONFIG_SRCDIR([doc/examples/demo/demo.c])
 AC_CONFIG_HEADER([config.h])
@@ -871,9 +871,6 @@ AM_CONDITIONAL(HAS_atmega324p, test "x$HAS_atmega324p" = "xyes")
 CHECK_AVR_DEVICE(atmega324pa)
 AM_CONDITIONAL(HAS_atmega324pa, test "x$HAS_atmega324pa" = "xyes")
 
-CHECK_AVR_DEVICE(atmega324pb)
-AM_CONDITIONAL(HAS_atmega324pb, test "x$HAS_atmega324pb" = "xyes")
-
 CHECK_AVR_DEVICE(atmega325)
 AM_CONDITIONAL(HAS_atmega325, test "x$HAS_atmega325" = "xyes")
 
@@ -1125,6 +1122,11 @@ AM_CONDITIONAL(HAS_atxmega32d4, test "x$HAS_atxmega32d4" = "xyes")
 
 CHECK_AVR_DEVICE(atxmega32e5)
 AM_CONDITIONAL(HAS_atxmega32e5, test "x$HAS_atxmega32e5" = "xyes")
+
+
+# avrxmega3
+CHECK_AVR_DEVICE(avrxmega3)
+AM_CONDITIONAL(HAS_avrxmega3, test "x$HAS_avrxmega3" = "xyes")
 
 
 # avrxmega4
@@ -1478,7 +1480,6 @@ AC_CONFIG_FILES([
 	avr/lib/avr5/atmega324a/Makefile
 	avr/lib/avr5/atmega324p/Makefile
 	avr/lib/avr5/atmega324pa/Makefile
-	avr/lib/avr5/atmega324pb/Makefile
 	avr/lib/avr5/atmega325/Makefile
 	avr/lib/avr5/atmega325a/Makefile
 	avr/lib/avr5/atmega325p/Makefile
@@ -1573,6 +1574,16 @@ AC_CONFIG_FILES([
 	avr/lib/avrxmega2/atxmega32d3/Makefile
 	avr/lib/avrxmega2/atxmega32d4/Makefile
 	avr/lib/avrxmega2/atxmega32e5/Makefile
+])
+
+# avrxmega3
+AC_CONFIG_FILES([
+	avr/lib/avrxmega3/Makefile
+])
+
+# avrxmega3/short-calls
+AC_CONFIG_FILES([
+	avr/lib/avrxmega3/short-calls/Makefile
 ])
 
 # avrxmega4
