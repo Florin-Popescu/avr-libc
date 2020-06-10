@@ -11,7 +11,7 @@ export PATH
 ./configure \
 --prefix=$INSTALL_DIR \
 --host=avr \
---datadir=$installdir
+--datadir=$INSTALL_DIR
 
 make all -j $NUMBER_OF_PROCESSORS
 make install
