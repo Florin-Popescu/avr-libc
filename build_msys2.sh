@@ -8,7 +8,7 @@ cd build
 PATH=$INSTALL_DIR/bin:$PATH
 export PATH
 
-./configure \
+../configure \
 --prefix=$INSTALL_DIR \
 --host=avr \
 --datadir=$INSTALL_DIR
