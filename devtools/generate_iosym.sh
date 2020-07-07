@@ -16,7 +16,7 @@ atmega324pa atmega324pb atmega325 atmega3250 atmega3250a atmega3250p atmega325a 
 atmega325p atmega328 atmega328p atmega329 atmega3290 atmega3290a \
 atmega3290p atmega329a atmega329p atmega329pa atmega32c1 atmega32hvb \
 atmega32hvbrevb atmega32m1 atmega32u2 atmega32u4 atmega32u6 atmega406 \
-atmega48 atmega48a atmega48p atmega64 atmega640 atmega644 atmega644a \
+atmega48 atmega48a atmega48p atmega4808 atmega64 atmega640 atmega644 atmega644a \
 atmega644p atmega644pa atmega644rfr2 atmega645 atmega6450 atmega6450a \
 atmega6450p atmega645a atmega645p atmega649 atmega6490 atmega6490a \
 atmega6490p atmega649a atmega649p atmega64c1 atmega64hve atmega64m1 \

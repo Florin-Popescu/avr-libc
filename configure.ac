@@ -299,7 +299,7 @@ dnl
 dnl   $ pngtopnm foo.png > tmp.pnm
 dnl   $ pnmtopng -transparent white tmp.pnm > foo.png
 dnl
-dnl @version 
+dnl @version
 dnl @author Theodore A. Roth <troth@openavr.org> and Eric B. Weddington <eweddington@cso.atmel.com>
 dnl
 AC_DEFUN([CHECK_PNG_UTILS],[dnl
@@ -1131,6 +1131,9 @@ AM_CONDITIONAL(HAS_atxmega32e5, test "x$HAS_atxmega32e5" = "xyes")
 CHECK_AVR_DEVICE(avrxmega3)
 AM_CONDITIONAL(HAS_avrxmega3, test "x$HAS_avrxmega3" = "xyes")
 
+CHECK_AVR_DEVICE(atmega4808)
+AM_CONDITIONAL(HAS_atmega4808, test "x$HAS_atmega4808" = "xyes")
+
 
 # avrxmega4
 CHECK_AVR_DEVICE(avrxmega4)
@@ -1442,15 +1445,15 @@ AC_CONFIG_FILES([
 	avr/lib/avr5/at90scr100/Makefile
 	avr/lib/avr5/at90usb646/Makefile
 	avr/lib/avr5/at90usb647/Makefile
-	avr/lib/avr5/at94k/Makefile 
-	avr/lib/avr5/ata5702m322/Makefile 
-	avr/lib/avr5/ata5782/Makefile 
-	avr/lib/avr5/ata5790/Makefile 
-	avr/lib/avr5/ata5790n/Makefile 
-	avr/lib/avr5/ata5795/Makefile 
-	avr/lib/avr5/ata5831/Makefile 
-	avr/lib/avr5/ata6613c/Makefile 
-	avr/lib/avr5/ata6614q/Makefile 
+	avr/lib/avr5/at94k/Makefile
+	avr/lib/avr5/ata5702m322/Makefile
+	avr/lib/avr5/ata5782/Makefile
+	avr/lib/avr5/ata5790/Makefile
+	avr/lib/avr5/ata5790n/Makefile
+	avr/lib/avr5/ata5795/Makefile
+	avr/lib/avr5/ata5831/Makefile
+	avr/lib/avr5/ata6613c/Makefile
+	avr/lib/avr5/ata6614q/Makefile
 	avr/lib/avr5/atmega16/Makefile
 	avr/lib/avr5/atmega16a/Makefile
 	avr/lib/avr5/atmega161/Makefile
@@ -1583,6 +1586,7 @@ AC_CONFIG_FILES([
 # avrxmega3
 AC_CONFIG_FILES([
 	avr/lib/avrxmega3/Makefile
+	avr/lib/avrxmega3/atmega4808/Makefile
 ])
 
 # avrxmega3/short-calls

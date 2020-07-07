@@ -152,6 +152,7 @@ avr_HEADERS = \
     iom48pa.h \
     iom48pb.h \
     iom48p.h \
+    iom4808.h \
     iom406.h \
     iom64.h \
     iom64a.h \

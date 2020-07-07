@@ -158,6 +158,7 @@ EXTRA_DIST = \
 	atmega48p.S \
 	atmega48pa.S \
 	atmega48pb.S \
+	atmega4808.S \
 	atmega64.S \
 	atmega640.S \
 	atmega644.S \
