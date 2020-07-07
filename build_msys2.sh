@@ -1,5 +1,7 @@
+#!/bin/bash
+
 INSTALL_DIR=/c/avr
-XMLDIR=$HOME/Documents/Atmel.ATmega_DFP.1.4.351/atdf
+XMLDIR=$HOME/Downloads/Atmel.ATmega_DFP.1.4.351/atdf
 export XMLDIR
 
 ./bootstrap
