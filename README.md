@@ -7,7 +7,7 @@ Standard C library for AVR-GCC
 	- EEPROM
 	- Sleep
 	- Watchdog
-- Added support for ATTiny program memory read
+- Added support for ATTiny program memory read.
 - Added support for ATmega324PB. Tested on [ATmega324PB Xplained Pro Board](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/ATMEGA324PB-XPRO).
 - Added support for ATmega4808. Tested on [AVR-IoT WG Development Board](https://www.microchip.com/DevelopmentTools/ProductDetails/AC164160).
 
