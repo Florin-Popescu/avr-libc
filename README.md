@@ -7,8 +7,8 @@ Standard C library for AVR-GCC
 	- Sleep
 	- Watchdog
 - Added support for ATTiny program memory read
-- Added support for ATmega324PB
-- Added support for ATmega4808
+- Added support for ATmega324PB. Tested on [ATmega324PB Xplained Pro](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/ATMEGA324PB-XPRO) board.
+- Added support for ATmega4808. Tested on [AVR-IoT WG Development Board](https://www.microchip.com/DevelopmentTools/ProductDetails/AC164160)
 
 ## Supporting new stuff
 This is a rough guide since it only documents changes already performed. So far new devices are still fairly compatibile with existing ones, but this will most likely not always be the case. It is not intendend to be an extensive porting guide.
