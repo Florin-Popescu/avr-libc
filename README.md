@@ -2,6 +2,11 @@
 Standard C library for AVR-GCC
 
 ## Changes from official repo
+- Added support for AVR8x/AVRXmega3 family:
+	- EEPROM
+	- Sleep
+	- Watchdog
+- Added support for ATTiny program memory read
 - Added support for ATmega324PB
 - Added support for ATmega4808
 
