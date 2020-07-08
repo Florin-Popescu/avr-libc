@@ -2,6 +2,7 @@
 Standard C library for AVR-GCC
 
 ## Changes from official repo
+- Removed a test file (aux.c) which used a Windows reserved name.
 - Added support for AVR8x/AVRXmega3 family:
 	- EEPROM
 	- Sleep
