@@ -225,13 +225,25 @@
 #else /* real code */
 
 #ifdef __cplusplus
+#  if defined(__AVR_MEGA__) && __AVR_MEGA__
 #    define ISR_ALIAS(vector, tgt) extern "C" void vector (void) \
 	__attribute__((__signal__, __naked__, __INTR_ATTRS)); \
 	void vector (void) { __asm__ __volatile__ ("%~jmp " __STRINGIFY(tgt) ::); }
+#  else /* !__AVR_MEGA */
+#    define ISR_ALIAS(vector, tgt) extern "C" void vector (void) \
+	__attribute__((__signal__, __naked__, __INTR_ATTRS)); \
+	void vector (void) { __asm__ __volatile__ ("%~rjmp " __STRINGIFY(tgt) ::); }
+#  endif  /* __AVR_MEGA__ */
 #else	  /* !__cplusplus */
+#  if defined(__AVR_MEGA__) && __AVR_MEGA__
 #  define ISR_ALIAS(vector, tgt) void vector (void) \
 	__attribute__((__signal__, __naked__, __INTR_ATTRS)); \
 	void vector (void) { __asm__ __volatile__ ("%~jmp " __STRINGIFY(tgt) ::); }
+#  else /* !__AVR_MEGA */
+#  define ISR_ALIAS(vector, tgt) void vector (void) \
+	__attribute__((__signal__, __naked__, __INTR_ATTRS)); \
+	void vector (void) { __asm__ __volatile__ ("%~rjmp " __STRINGIFY(tgt) ::); }
+#  endif  /* __AVR_MEGA__ */
 #endif	/* __cplusplus */
 
 #endif /* DOXYGEN */
