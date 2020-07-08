@@ -23,4 +23,4 @@ This is a rough guide since it only documents changes already performed. So far 
 	- ./doc/api/main_page.dox
 	- ./doc/api/using-tools.dox
 
-Forked from latest sources at [AVR Libc Project](https://www.nongnu.org/avr-libc/).
+Forked from latest sources at [AVR Libc Project](https://www.nongnu.org/avr-libc/) with patches tracked in SVN but not yet applied, and patches from Atmel/Microchip Toolchain.
