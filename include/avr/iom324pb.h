@@ -1269,11 +1269,11 @@
 #define FUSE_SUT_CKSEL1  (unsigned char)~_BV(1)
 #define FUSE_SUT_CKSEL2  (unsigned char)~_BV(2)
 #define FUSE_SUT_CKSEL3  (unsigned char)~_BV(3)
-#define FUSE_SUT_CKSEL4  (unsigned char)~_BV(4)
-#define FUSE_SUT_CKSEL5  (unsigned char)~_BV(5)
+#define FUSE_SUT0        (unsigned char)~_BV(4)
+#define FUSE_SUT1        (unsigned char)~_BV(5)
 #define FUSE_CKOUT       (unsigned char)~_BV(6)
 #define FUSE_CKDIV8      (unsigned char)~_BV(7)
-#define LFUSE_DEFAULT    (FUSE_SUT_CKSEL0 & FUSE_SUT_CKSEL2 & FUSE_SUT_CKSEL3 & FUSE_SUT_CKSEL4 & FUSE_CKDIV8)
+#define LFUSE_DEFAULT    (FUSE_SUT_CKSEL0 & FUSE_SUT_CKSEL2 & FUSE_SUT_CKSEL3 & FUSE_SUT0 & FUSE_CKDIV8)
 
 
 /* High Fuse Byte */

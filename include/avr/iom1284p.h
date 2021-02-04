@@ -26,7 +26,7 @@
   INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
   CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-  POSSIBILITY OF SUCH DAMAGE. 
+  POSSIBILITY OF SUCH DAMAGE.
 */
 
 /* $Id: iom1284p.h 2460 2014-12-03 05:39:25Z pitchumani $ */
@@ -43,7 +43,7 @@
 #  define _AVR_IOXXX_H_ "iom1284p.h"
 #else
 #  error "Attempt to include more than one <avr/ioXXX.h> file."
-#endif 
+#endif
 
 
 #ifndef _AVR_IOM1284P_H_
@@ -1178,7 +1178,7 @@
 #define FUSE_SUT1   (unsigned char)~_BV(5)  /* Select start-up time */
 #define FUSE_CKOUT  (unsigned char)~_BV(6)  /* Clock output */
 #define FUSE_CKDIV8 (unsigned char)~_BV(7)  /* Divide clock by 8 */
-#define LFUSE_DEFAULT (FUSE_CKSEL0 & FUSE_CKSEL2 & FUSE_CKSEL3 & FUSE_SUT0 & FUSE_SUT1 & FUSE_CKDIV8)
+#define LFUSE_DEFAULT (FUSE_CKSEL0 & FUSE_CKSEL2 & FUSE_CKSEL3 & FUSE_SUT0 & FUSE_CKDIV8)
 
 /* High Fuse Byte */
 #define FUSE_BOOTRST (unsigned char)~_BV(0)  /* Select Reset Vector */
@@ -1189,7 +1189,7 @@
 #define FUSE_SPIEN   (unsigned char)~_BV(5)  /* Enable Serial programming and Data Downloading */
 #define FUSE_JTAGEN  (unsigned char)~_BV(6)  /* Enable JTAG */
 #define FUSE_OCDEN   (unsigned char)~_BV(7)  /* Enable OCD */
-#define HFUSE_DEFAULT (FUSE_BOOTSZ0 & FUSE_SPIEN & FUSE_JTAGEN)
+#define HFUSE_DEFAULT (FUSE_BOOTSZ0 & FUSE_BOOTSZ1 & FUSE_SPIEN & FUSE_JTAGEN)
 
 /* Extended Fuse Byte */
 #define FUSE_BODLEVEL0 (unsigned char)~_BV(0)  /* Brown-out Detector trigger level */
@@ -1201,7 +1201,7 @@
 /* Lock Bits */
 #define __LOCK_BITS_EXIST
 #define __BOOT_LOCK_BITS_0_EXIST
-#define __BOOT_LOCK_BITS_1_EXIST 
+#define __BOOT_LOCK_BITS_1_EXIST
 
 
 /* Signature */

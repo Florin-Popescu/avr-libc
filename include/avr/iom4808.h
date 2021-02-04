@@ -4920,8 +4920,8 @@ IO Module Instances. Mapped to memory.
 #define FUSE_RSTPINCFG  (unsigned char)_BV(3)  /* Reset Pin Configuration */
 #define FUSE_CRCSRC0  (unsigned char)_BV(6)  /* CRC Source Bit 0 */
 #define FUSE_CRCSRC1  (unsigned char)_BV(7)  /* CRC Source Bit 1 */
-#define FUSE5_DEFAULT  (0xc4)
-#define FUSE_SYSCFG0_DEFAULT  (0xc4)
+#define FUSE5_DEFAULT  (0xc0)
+#define FUSE_SYSCFG0_DEFAULT  (0xc0)
 
 /* Fuse Byte 6 (SYSCFG1) */
 #define FUSE_SUT0  (unsigned char)_BV(0)  /* Startup Time Bit 0 */
