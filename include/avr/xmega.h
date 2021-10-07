@@ -56,7 +56,7 @@
  _PROTECTED_WRITE(CLK_CTRL, CLK_SCLKSEL0_bm);
  \endcode
  */
- #define _PROTECTED_WRITE(reg, value)
+#define _PROTECTED_WRITE(reg, value)
 
 /**
  \def _PROTECTED_WRITE_SPM
@@ -76,7 +76,7 @@
  */
 #define _PROTECTED_WRITE_SPM(reg, value)
 
- #else  /* !__DOXYGEN__ */
+#else  /* !__DOXYGEN__ */
 
 #define _PROTECTED_WRITE(reg, value)				\
   __asm__ __volatile__("out %[ccp], %[ccp_ioreg]" "\n\t"	\

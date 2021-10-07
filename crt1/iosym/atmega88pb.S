@@ -2346,7 +2346,7 @@
 	.section	.debug_info
 	.byte		5	; length of block
 	.byte		DW_OP_addr
-	.long		0x800000 + 0x00 + 0x4F
+	.long		0x800000 + 0x00 + 0x2F
 
 	.section	.debug_abbrev
 	.uleb128	0
