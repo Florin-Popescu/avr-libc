@@ -2,7 +2,7 @@
 
 case $(uname -o | cut -d '/' -f2) in
 	"Msys")
-		export XMLDIR=$HOME/Downloads/Atmel.ATmega_DFP.1.7.374/atdf
+		export XMLDIR=~/Downloads/Atmel.ATmega_DFP.1.7.374/atdf
 
 		SUDO=
 		;;
