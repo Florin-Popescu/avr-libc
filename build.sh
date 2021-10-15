@@ -2,8 +2,6 @@
 
 case $(uname -o | cut -d '/' -f2) in
 	"Msys")
-		export XMLDIR=~/Downloads/Atmel.ATmega_DFP.1.7.374/atdf
-
 		SUDO=
 		;;
 	"Linux")
@@ -13,6 +11,8 @@ case $(uname -o | cut -d '/' -f2) in
 		SUDO=sudo
 		;;
 esac
+
+export XMLDIR=~/Downloads/atdf
 
 ./bootstrap
 
