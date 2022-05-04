@@ -30,7 +30,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: attiny87.S 2376 2013-04-30 14:49:25Z joerg_wunsch $ */
+/* $Id: ioreg.pl 2376 2013-04-30 14:49:25Z joerg_wunsch $ */
 
 #include <avr/version.h>
 
@@ -3996,7 +3996,7 @@
 	.uleb128	0
 
 ;- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-	;; DIE #77: variable MCUSR
+	;; DIE #77: variable SMCR
 	.section	.debug_info
 	.uleb128	77	; ref to abbrev 77
 	.section	.debug_abbrev
@@ -4008,7 +4008,7 @@
 	.uleb128	DW_FORM_strp
 	.section	.debug_str
 .Lname77:
-	.string		"MCUSR"
+	.string		"SMCR"
 	.section	.debug_info
 	.long		.Lname77
 

@@ -30,7 +30,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: attiny44a.S 2376 2013-04-30 14:49:25Z joerg_wunsch $ */
+/* $Id: ioreg.pl 2376 2013-04-30 14:49:25Z joerg_wunsch $ */
 
 #include <avr/version.h>
 
@@ -2618,7 +2618,7 @@
 	.uleb128	0
 
 ;- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-	;; DIE #51: variable SPMCSR
+	;; DIE #51: variable PRR
 	.section	.debug_info
 	.uleb128	51	; ref to abbrev 51
 	.section	.debug_abbrev
@@ -2630,62 +2630,9 @@
 	.uleb128	DW_FORM_strp
 	.section	.debug_str
 .Lname51:
-	.string		"SPMCSR"
-	.section	.debug_info
-	.long		.Lname51
-
-	.section	.debug_abbrev
-	.uleb128	DW_AT_decl_file
-	.uleb128	DW_FORM_data1
-	.section	.debug_info
-	.byte		0	; no source file information
-
-	.section	.debug_abbrev
-	.uleb128	DW_AT_decl_line
-	.uleb128	DW_FORM_data1
-	.section	.debug_info
-	.byte		0	; no source line information
-
-	.section	.debug_abbrev
-	.uleb128	DW_AT_type
-	.uleb128	DW_FORM_ref4
-	.section	.debug_info
-	.long		.Luint8_t - .Lssinfo
-
-	.section	.debug_abbrev
-	.uleb128	DW_AT_external
-	.uleb128	DW_FORM_flag
-	.section	.debug_info
-	.byte		1
-
-	.section	.debug_abbrev
-	.uleb128	DW_AT_location
-	.uleb128	DW_FORM_block1
-	.section	.debug_info
-	.byte		5	; length of block
-	.byte		DW_OP_addr
-	.long		0x800000 + 0x00 + 0x57
-
-	.section	.debug_abbrev
-	.uleb128	0
-	.uleb128	0
-
-;- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-	;; DIE #52: variable PRR
-	.section	.debug_info
-	.uleb128	52	; ref to abbrev 52
-	.section	.debug_abbrev
-	.uleb128	52
-	.uleb128	DW_TAG_variable
-	.byte		DW_CHILDREN_no
-
-	.uleb128	DW_AT_name
-	.uleb128	DW_FORM_strp
-	.section	.debug_str
-.Lname52:
 	.string		"PRR"
 	.section	.debug_info
-	.long		.Lname52
+	.long		.Lname51
 
 	.section	.debug_abbrev
 	.uleb128	DW_AT_decl_file
@@ -2724,21 +2671,21 @@
 	.uleb128	0
 
 ;- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-	;; DIE #53: variable OSCCAL
+	;; DIE #52: variable OSCCAL
 	.section	.debug_info
-	.uleb128	53	; ref to abbrev 53
+	.uleb128	52	; ref to abbrev 52
 	.section	.debug_abbrev
-	.uleb128	53
+	.uleb128	52
 	.uleb128	DW_TAG_variable
 	.byte		DW_CHILDREN_no
 
 	.uleb128	DW_AT_name
 	.uleb128	DW_FORM_strp
 	.section	.debug_str
-.Lname53:
+.Lname52:
 	.string		"OSCCAL"
 	.section	.debug_info
-	.long		.Lname53
+	.long		.Lname52
 
 	.section	.debug_abbrev
 	.uleb128	DW_AT_decl_file
@@ -2777,21 +2724,21 @@
 	.uleb128	0
 
 ;- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-	;; DIE #54: variable CLKPR
+	;; DIE #53: variable CLKPR
 	.section	.debug_info
-	.uleb128	54	; ref to abbrev 54
+	.uleb128	53	; ref to abbrev 53
 	.section	.debug_abbrev
-	.uleb128	54
+	.uleb128	53
 	.uleb128	DW_TAG_variable
 	.byte		DW_CHILDREN_no
 
 	.uleb128	DW_AT_name
 	.uleb128	DW_FORM_strp
 	.section	.debug_str
-.Lname54:
+.Lname53:
 	.string		"CLKPR"
 	.section	.debug_info
-	.long		.Lname54
+	.long		.Lname53
 
 	.section	.debug_abbrev
 	.uleb128	DW_AT_decl_file
@@ -2830,21 +2777,21 @@
 	.uleb128	0
 
 ;- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-	;; DIE #55: variable SREG
+	;; DIE #54: variable SREG
 	.section	.debug_info
-	.uleb128	55	; ref to abbrev 55
+	.uleb128	54	; ref to abbrev 54
 	.section	.debug_abbrev
-	.uleb128	55
+	.uleb128	54
 	.uleb128	DW_TAG_variable
 	.byte		DW_CHILDREN_no
 
 	.uleb128	DW_AT_name
 	.uleb128	DW_FORM_strp
 	.section	.debug_str
-.Lname55:
+.Lname54:
 	.string		"SREG"
 	.section	.debug_info
-	.long		.Lname55
+	.long		.Lname54
 
 	.section	.debug_abbrev
 	.uleb128	DW_AT_decl_file
@@ -2883,21 +2830,21 @@
 	.uleb128	0
 
 ;- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-	;; DIE #56: variable SP
+	;; DIE #55: variable SP
 	.section	.debug_info
-	.uleb128	56	; ref to abbrev 56
+	.uleb128	55	; ref to abbrev 55
 	.section	.debug_abbrev
-	.uleb128	56
+	.uleb128	55
 	.uleb128	DW_TAG_variable
 	.byte		DW_CHILDREN_no
 
 	.uleb128	DW_AT_name
 	.uleb128	DW_FORM_strp
 	.section	.debug_str
-.Lname56:
+.Lname55:
 	.string		"SP"
 	.section	.debug_info
-	.long		.Lname56
+	.long		.Lname55
 
 	.section	.debug_abbrev
 	.uleb128	DW_AT_decl_file
@@ -2936,21 +2883,21 @@
 	.uleb128	0
 
 ;- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-	;; DIE #57: variable MCUCR
+	;; DIE #56: variable MCUCR
 	.section	.debug_info
-	.uleb128	57	; ref to abbrev 57
+	.uleb128	56	; ref to abbrev 56
 	.section	.debug_abbrev
-	.uleb128	57
+	.uleb128	56
 	.uleb128	DW_TAG_variable
 	.byte		DW_CHILDREN_no
 
 	.uleb128	DW_AT_name
 	.uleb128	DW_FORM_strp
 	.section	.debug_str
-.Lname57:
+.Lname56:
 	.string		"MCUCR"
 	.section	.debug_info
-	.long		.Lname57
+	.long		.Lname56
 
 	.section	.debug_abbrev
 	.uleb128	DW_AT_decl_file
@@ -2989,21 +2936,21 @@
 	.uleb128	0
 
 ;- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-	;; DIE #58: variable MCUSR
+	;; DIE #57: variable MCUSR
 	.section	.debug_info
-	.uleb128	58	; ref to abbrev 58
+	.uleb128	57	; ref to abbrev 57
 	.section	.debug_abbrev
-	.uleb128	58
+	.uleb128	57
 	.uleb128	DW_TAG_variable
 	.byte		DW_CHILDREN_no
 
 	.uleb128	DW_AT_name
 	.uleb128	DW_FORM_strp
 	.section	.debug_str
-.Lname58:
+.Lname57:
 	.string		"MCUSR"
 	.section	.debug_info
-	.long		.Lname58
+	.long		.Lname57
 
 	.section	.debug_abbrev
 	.uleb128	DW_AT_decl_file
@@ -3042,21 +2989,21 @@
 	.uleb128	0
 
 ;- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-	;; DIE #59: variable GPIOR2
+	;; DIE #58: variable GPIOR2
 	.section	.debug_info
-	.uleb128	59	; ref to abbrev 59
+	.uleb128	58	; ref to abbrev 58
 	.section	.debug_abbrev
-	.uleb128	59
+	.uleb128	58
 	.uleb128	DW_TAG_variable
 	.byte		DW_CHILDREN_no
 
 	.uleb128	DW_AT_name
 	.uleb128	DW_FORM_strp
 	.section	.debug_str
-.Lname59:
+.Lname58:
 	.string		"GPIOR2"
 	.section	.debug_info
-	.long		.Lname59
+	.long		.Lname58
 
 	.section	.debug_abbrev
 	.uleb128	DW_AT_decl_file
@@ -3095,21 +3042,21 @@
 	.uleb128	0
 
 ;- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-	;; DIE #60: variable GPIOR1
+	;; DIE #59: variable GPIOR1
 	.section	.debug_info
-	.uleb128	60	; ref to abbrev 60
+	.uleb128	59	; ref to abbrev 59
 	.section	.debug_abbrev
-	.uleb128	60
+	.uleb128	59
 	.uleb128	DW_TAG_variable
 	.byte		DW_CHILDREN_no
 
 	.uleb128	DW_AT_name
 	.uleb128	DW_FORM_strp
 	.section	.debug_str
-.Lname60:
+.Lname59:
 	.string		"GPIOR1"
 	.section	.debug_info
-	.long		.Lname60
+	.long		.Lname59
 
 	.section	.debug_abbrev
 	.uleb128	DW_AT_decl_file
@@ -3148,7 +3095,60 @@
 	.uleb128	0
 
 ;- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-	;; DIE #61: variable GPIOR0
+	;; DIE #60: variable GPIOR0
+	.section	.debug_info
+	.uleb128	60	; ref to abbrev 60
+	.section	.debug_abbrev
+	.uleb128	60
+	.uleb128	DW_TAG_variable
+	.byte		DW_CHILDREN_no
+
+	.uleb128	DW_AT_name
+	.uleb128	DW_FORM_strp
+	.section	.debug_str
+.Lname60:
+	.string		"GPIOR0"
+	.section	.debug_info
+	.long		.Lname60
+
+	.section	.debug_abbrev
+	.uleb128	DW_AT_decl_file
+	.uleb128	DW_FORM_data1
+	.section	.debug_info
+	.byte		0	; no source file information
+
+	.section	.debug_abbrev
+	.uleb128	DW_AT_decl_line
+	.uleb128	DW_FORM_data1
+	.section	.debug_info
+	.byte		0	; no source line information
+
+	.section	.debug_abbrev
+	.uleb128	DW_AT_type
+	.uleb128	DW_FORM_ref4
+	.section	.debug_info
+	.long		.Luint8_t - .Lssinfo
+
+	.section	.debug_abbrev
+	.uleb128	DW_AT_external
+	.uleb128	DW_FORM_flag
+	.section	.debug_info
+	.byte		1
+
+	.section	.debug_abbrev
+	.uleb128	DW_AT_location
+	.uleb128	DW_FORM_block1
+	.section	.debug_info
+	.byte		5	; length of block
+	.byte		DW_OP_addr
+	.long		0x800000 + 0x00 + 0x33
+
+	.section	.debug_abbrev
+	.uleb128	0
+	.uleb128	0
+
+;- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	;; DIE #61: variable SPMCSR
 	.section	.debug_info
 	.uleb128	61	; ref to abbrev 61
 	.section	.debug_abbrev
@@ -3160,7 +3160,7 @@
 	.uleb128	DW_FORM_strp
 	.section	.debug_str
 .Lname61:
-	.string		"GPIOR0"
+	.string		"SPMCSR"
 	.section	.debug_info
 	.long		.Lname61
 
@@ -3194,7 +3194,7 @@
 	.section	.debug_info
 	.byte		5	; length of block
 	.byte		DW_OP_addr
-	.long		0x800000 + 0x00 + 0x33
+	.long		0x800000 + 0x00 + 0x57
 
 	.section	.debug_abbrev
 	.uleb128	0
