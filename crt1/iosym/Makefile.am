@@ -216,6 +216,7 @@ EXTRA_DIST = \
 	attiny28.S \
 	attiny4.S \
 	attiny40.S \
+	attiny402.S \
 	attiny412.S \
 	attiny4313.S \
 	attiny43u.S \

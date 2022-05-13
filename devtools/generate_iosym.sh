@@ -24,7 +24,7 @@ atmega64rfr2 atmega8 atmega8515 atmega8535 atmega88 atmega88a \
 atmega88p atmega88pa atmega8hva atmega8u2 attiny10 attiny11 attiny12 \
 attiny13 attiny13a attiny15 attiny167 attiny20 attiny22 attiny2313 \
 attiny2313a attiny24 attiny24a attiny25 attiny26 attiny261 attiny261a \
-attiny28 attiny4 attiny40 attiny412 attiny4313 attiny43u attiny44 attiny44a attiny441 \
+attiny28 attiny4 attiny40 attiny402 attiny412 attiny4313 attiny43u attiny44 attiny44a attiny441 \
 attiny45 attiny461 attiny461a attiny48 attiny5 attiny84 attiny84a attiny841 \
 attiny85 attiny861 attiny861a attiny87 attiny88 attiny9 atxmega128a1 \
 atxmega128a1u atxmega128a3 atxmega128d3 atxmega16a4 atxmega16d4 \
