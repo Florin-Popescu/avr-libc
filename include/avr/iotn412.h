@@ -328,7 +328,7 @@ typedef enum BOD_LVL_enum
 typedef enum BOD_SAMPFREQ_enum
 {
     BOD_SAMPFREQ_1KHZ_gc = (0x00<<4),  /* 1kHz sampling */
-    BOD_SAMPFREQ_125Hz_gc = (0x01<<4)  /* 125Hz sampling */
+    BOD_SAMPFREQ_125HZ_gc = (0x01<<4)  /* 125Hz sampling */
 } BOD_SAMPFREQ_t;
 
 /* Operation in sleep mode select */
@@ -991,8 +991,8 @@ typedef enum RSTPINCFG_enum
 /* BOD Sample Frequency select */
 typedef enum SAMPFREQ_enum
 {
-    SAMPFREQ_1KHz_gc = (0x00<<4),  /* 1kHz sampling frequency */
-    SAMPFREQ_125Hz_gc = (0x01<<4)  /* 125Hz sampling frequency */
+    SAMPFREQ_1KHZ_gc = (0x00<<4),  /* 1kHz sampling frequency */
+    SAMPFREQ_125HZ_gc = (0x01<<4)  /* 125Hz sampling frequency */
 } SAMPFREQ_t;
 
 /* BOD Operation in Sleep Mode select */
@@ -5288,4 +5288,3 @@ IO Module Instances. Mapped to memory.
 #define SIGNATURE_2 0x23
 
 #endif /* #ifdef _AVR_ATTINY412_H_INCLUDED */
-
