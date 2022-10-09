@@ -1,4 +1,4 @@
-Package: avrlibc
+Package: avr-libc
 Version: 2.0.0-4
 Section: base
 Priority: optional
