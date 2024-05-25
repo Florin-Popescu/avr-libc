@@ -39,7 +39,7 @@ build() {
 	cd ..
 
 	cd build
-	../configure --host=avr
+	../configure --host=avr --prefix=/usr
 	make all
 }
 
